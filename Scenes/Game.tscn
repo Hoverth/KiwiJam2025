@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1my53myn3yfw"]
+
+[ext_resource type="Script" uid="uid://d07aa67ujbodc" path="res://Scripts/game.gd" id="1_iukft"]
+[ext_resource type="Script" uid="uid://d10gjcaaqxvnm" path="res://Networking/PutOnAllNetworkedObjects/multiplayer_synchronizer.gd" id="2_gl6un"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_iukft"]
+properties/0/path = NodePath(".:targetAltitude")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Game" type="Control" node_paths=PackedStringArray("altitudeLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iukft")
+altitudeLabel = NodePath("Altitude")
+
+[node name="Altitude" type="Label" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 308.0
+offset_right = 614.0
+offset_bottom = 331.0
+text = "Altitude"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_iukft")
+script = ExtResource("2_gl6un")

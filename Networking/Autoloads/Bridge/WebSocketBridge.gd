@@ -11,7 +11,6 @@ signal HostFailed(ErrorMsg)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var cert = load("res://Networking/Certificates/ca_bundle.crt")
 	#ws.connect_to_url("wss://127.0.0.1:25566",TLSOptions.client_unsafe())
 	ws.connect_to_url("wss://websocket.henry.games",TLSOptions.client_unsafe())
 	pass # Replace with function body.
@@ -60,8 +59,9 @@ func received_packet(message):
 			MultiplayerRoom.my_id = message.id
 			
 		"HOST_SUCCESS":
-			MultiplayerRoom.host_id = MultiplayerRoom.my_id;
+			
 			MultiplayerRoom.clearRoom()
+			MultiplayerRoom.host_id = MultiplayerRoom.my_id;
 			MultiplayerRoom.AddPlayer(MultiplayerRoom.my_id,message.name)
 			MultiplayerSync.set_object_authority(get_tree().root,MultiplayerRoom.my_id)
 			MultiplayerRoom.room_code = message.room_code
@@ -81,7 +81,6 @@ func received_packet(message):
 				if(player.id == MultiplayerRoom.my_id):
 					continue
 				BridgeHandler.peerJoined.emit(player.id,false)
-			BridgeHandler.ConnectedToWS.emit(MultiplayerRoom.my_id)
 			JoinSuccess.emit()
 		"PLAYER_JOINED":
 			MultiplayerRoom.AddPlayer(message.id,message.name)

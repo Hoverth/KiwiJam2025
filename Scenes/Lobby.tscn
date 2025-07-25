@@ -31,3 +31,13 @@ offset_top = 422.0
 offset_right = 597.0
 offset_bottom = 445.0
 text = "Players"
+
+[node name="Start Game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 390.0
+offset_right = 811.0
+offset_bottom = 421.0
+text = "Start Game"
+
+[connection signal="pressed" from="Start Game" to="." method="_on_start_game_pressed"]

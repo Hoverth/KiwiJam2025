@@ -116,7 +116,12 @@ func change_scene(scene_path):
 @rpc("any_peer","call_local","reliable")
 func change_scene_rpc(scene_path):
 	current_scene = scene_path
-	get_tree().change_scene_to_file(scene_path)
+	
+	get_tree().root.get_child(4).queue_free()
+	var instance :Node= load(scene_path).instantiate()
+	instance.set_multiplayer_authority(MultiplayerRoom.host_id)
+	get_tree().root.add_child(instance)
+	
 
 		
 	

@@ -26,3 +26,6 @@ func clearRoom():
 	room_code = ""
 	host_id = -1
 	players = {}
+
+func is_host():
+	return my_id == host_id

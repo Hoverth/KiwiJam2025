@@ -4,8 +4,9 @@ var rtc : WebRTCMultiplayerPeer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	print("WEBRTC ENABLED")
 	BridgeHandler.INIT.connect(onConnected)
+	
 	BridgeHandler.peerJoined.connect(create_peer)
 	BridgeHandler.iceComing.connect(_ice_received)
 	BridgeHandler.sessionComing.connect(_session_received)
@@ -19,6 +20,7 @@ func onConnected(id):
 	multiplayer.multiplayer_peer = rtc
 
 func create_peer(id,send_offer):
+	print("CREATING PEER")
 	var peer: WebRTCPeerConnection = WebRTCPeerConnection.new()
 	peer.initialize({
 		"iceServers":[
