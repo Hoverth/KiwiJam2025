@@ -21,7 +21,7 @@ func _on_join_pressed() -> void:
 	pass # Replace with function body.
 
 func on_host_success():
-	MultiplayerSync.change_scene("res://Lobby.tscn")
+	MultiplayerSync.change_scene("res://Scenes/Lobby.tscn")
 
 
 func _on_name_text_changed(new_text: String) -> void:
