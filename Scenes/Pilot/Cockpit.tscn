@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=7 format=3 uid="uid://bpdah7buo6lwv"]
 
+[ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
 [ext_resource type="Texture2D" uid="uid://yelp0mv58nhl" path="res://Art/BG/Cockpit.png" id="2_d8nln"]
 
@@ -24,6 +25,7 @@ scale_max = 4.0
 color = Color(0.689383, 0.689383, 0.689383, 0.180392)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_d8nln")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="TextureRect" parent="."]
@@ -54,3 +56,9 @@ position = Vector2(576, 378.62)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_d8nln")
 metadata/_edit_lock_ = true
+
+[node name="tilt_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="tilt_timer" to="." method="_on_tilt_timer_timeout"]
