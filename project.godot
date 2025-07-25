@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="KiwiJam2025"
+run/main_scene="uid://cqyu6r7ksxtxr"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MultiplayerRoom="*res://Networking/Autoloads/MultiplayerRoom.gd"
+MultiplayerSync="*res://Networking/Autoloads/MultiplayerSync.gd"
+BridgeHandler="*res://Networking/Autoloads/Bridge/BridgeHandler.gd"
+WebRtc="*res://Networking/Autoloads/WebRTC.gd"
 
 [rendering]
 

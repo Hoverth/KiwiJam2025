@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvd0l7hcpynqv"]
+
+[ext_resource type="Script" uid="uid://ctjw10pjo1f2x" path="res://Networking/Autoloads/Bridge/WebsiteBridge.gd" id="1_inke8"]
+
+[node name="WebsiteBridge" type="Node"]
+script = ExtResource("1_inke8")

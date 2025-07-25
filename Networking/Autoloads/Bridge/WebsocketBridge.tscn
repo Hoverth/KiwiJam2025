@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duem1k5qm8cmx"]
+
+[ext_resource type="Script" uid="uid://byjmbk3vw53nn" path="res://Networking/Autoloads/Bridge/WebSocketBridge.gd" id="1_3tsvc"]
+
+[node name="WebsocketBridge" type="Node"]
+script = ExtResource("1_3tsvc")
