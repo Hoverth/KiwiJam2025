@@ -22,6 +22,11 @@ MultiplayerSync="*res://Networking/Autoloads/MultiplayerSync.gd"
 BridgeHandler="*res://Networking/Autoloads/Bridge/BridgeHandler.gd"
 WebRtc="*res://Networking/Autoloads/WebRTC.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

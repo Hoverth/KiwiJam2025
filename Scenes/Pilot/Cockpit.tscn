@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpdah7buo6lwv"]
+
+[ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
+[ext_resource type="Texture2D" uid="uid://yelp0mv58nhl" path="res://Art/BG/Cockpit.png" id="2_d8nln"]
+
+[sub_resource type="Gradient" id="Gradient_37r7p"]
+offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
+colors = PackedColorArray(3.73013e-06, 0.397144, 0.3911, 1, 0.00755374, 0.596663, 0.600431, 1, 0.0144651, 0.278733, 0.310489, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kw7gx"]
+gradient = SubResource("Gradient_37r7p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x7say"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 100, 0)
+gravity = Vector3(0, 40, 0)
+radial_accel_min = -6.9
+radial_accel_max = 27.96
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+scale_min = 2.0
+scale_max = 4.0
+color = Color(0.689383, 0.689383, 0.689383, 0.180392)
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 1152.0
+offset_right = 1800.0
+offset_bottom = 1152.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_kw7gx")
+metadata/_edit_lock_ = true
+
+[node name="Clouds?" type="GPUParticles2D" parent="."]
+position = Vector2(579, -88)
+amount = 1000
+texture = ExtResource("1_oinbx")
+lifetime = 5.0
+preprocess = 5.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_x7say")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580.687, 378.125)
+scale = Vector2(1.5555, 1.5555)
+metadata/_edit_lock_ = true
+
+[node name="Cockpit" type="Sprite2D" parent="."]
+position = Vector2(576, 378.62)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_d8nln")
+metadata/_edit_lock_ = true

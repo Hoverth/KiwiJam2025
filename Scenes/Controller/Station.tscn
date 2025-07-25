@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://krd4cifms0xv"]
+
+[ext_resource type="Texture2D" uid="uid://d1qca4hgydf7p" path="res://Art/BG/ControllerStation.png" id="1_1dhem"]
+[ext_resource type="Texture2D" uid="uid://wsok8f4uqw65" path="res://Art/Sprite/RadarContact.png" id="2_bok21"]
+[ext_resource type="Texture2D" uid="uid://cpfma8nj7c08b" path="res://Art/Sprite/RadarAlert.png" id="3_0ej5x"]
+[ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="4_5vxii"]
+
+[node name="Station" type="Node2D"]
+
+[node name="ControllerStation" type="Sprite2D" parent="."]
+position = Vector2(533, 323)
+scale = Vector2(0.322082, 0.322082)
+texture = ExtResource("1_1dhem")
+
+[node name="RadarContact" type="Sprite2D" parent="."]
+position = Vector2(427, -103)
+scale = Vector2(0.322, 0.322)
+texture = ExtResource("2_bok21")
+
+[node name="RadarAlert" type="Sprite2D" parent="."]
+position = Vector2(662, -166)
+scale = Vector2(0.322, 0.322)
+texture = ExtResource("3_0ej5x")
+
+[node name="PageArrow" type="Sprite2D" parent="."]
+position = Vector2(1010, -160)
+scale = Vector2(0.322, 0.322)
+texture = ExtResource("4_5vxii")
