@@ -12,22 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dltmv8in5xjdp" path="res://Art/BG/Camera/PlaneCamIcon.png" id="9_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://cl7nvndqlxxtc" path="res://Art/BG/Camera/TextBoxBig.png" id="10_0v8vy"]
 
-[sub_resource type="Animation" id="Animation_bbha4"]
-resource_name = "flashing camera"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flash:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.670588, 0, 0, 0), Color(0.670588, 0, 0, 0.435294), Color(0.670588, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_i6k7c"]
 length = 0.001
 tracks/0/type = "value"
@@ -65,6 +49,22 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.670588, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bbha4"]
+resource_name = "flashing camera"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.670588, 0, 0, 0), Color(0.670588, 0, 0, 0.435294), Color(0.670588, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2ysbw"]
@@ -132,11 +132,9 @@ speed_scale = 1.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-6.10352e-05, 0)
-scale = Vector2(1, 1)
 stream = ExtResource("4_0v8vy")
 
 [node name="Cam 1" type="Node2D" parent="."]
-visible = false
 position = Vector2(60, -1)
 
 [node name="State 1" type="Sprite2D" parent="Cam 1"]
@@ -189,14 +187,15 @@ scale = Vector2(21.875, 14.7188)
 texture = SubResource("GradientTexture2D_i6k7c")
 
 [node name="Cam 3" type="Node2D" parent="."]
+visible = false
 
 [node name="State 1" type="Sprite2D" parent="Cam 3"]
-visible = false
 position = Vector2(576, 324)
 scale = Vector2(1.81703, 1.4026)
 texture = ExtResource("7_2ysbw")
 
 [node name="State 2" type="Sprite2D" parent="Cam 3"]
+visible = false
 position = Vector2(576, 324)
 scale = Vector2(1.81703, 1.36134)
 texture = ExtResource("8_2ysbw")

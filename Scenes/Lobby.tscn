@@ -49,7 +49,7 @@ offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_lolwk")
-text = "You play this game by communicating with your partner, in an attempt to make sure that the plane doesn't get destroyed after the pilots fall unconcious.
+text = "You play this game by communicating with your partner, in an attempt to make sure that the plane doesn't crash after all your navigation systems have cut out.
 
 The pilot player needs to manage the plane, and call out events like flashing indicators, alarms, and other hazards to the controller player, and follow their directions.
 
