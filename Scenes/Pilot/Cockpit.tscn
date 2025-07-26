@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=38 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -12,7 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://m5cxxvbqoge2" path="res://Art/BG/Eject/DownButton.png" id="7_1kq3k"]
 [ext_resource type="Texture2D" uid="uid://b6m8ne0c2fu5s" path="res://Art/BG/OverweightLoadCapacity/Light.png" id="7_8rbhf"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
-[ext_resource type="PackedScene" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
+[ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="9_rc7mj"]
+[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
 [ext_resource type="AudioStream" uid="uid://cp6dmijpc0ppl" path="res://Audio/SoundEffects/Plane Noise.wav" id="15_jhn3y"]
 [ext_resource type="Script" path="res://Scripts/CaveSounds.gd" id="15_k633s"]
@@ -149,9 +150,15 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co2gk"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_55tm8"]
+font = ExtResource("9_rc7mj")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kq3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ikyy"]
+
+[sub_resource type="Theme" id="Theme_rc7mj"]
+default_font = ExtResource("9_rc7mj")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_d8nln")
@@ -189,6 +196,8 @@ autostart = true
 position = Vector2(796, 336)
 scale = Vector2(3, 3)
 script = ExtResource("4_e14br")
+min_eject_challenge_delay = 1.0
+max_eject_challenge_delay = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="EjectSeat"]
 position = Vector2(18, 16)
@@ -229,11 +238,13 @@ scale = Vector2(0.0835114, 0.0835114)
 texture = ExtResource("6_co2gk")
 
 [node name="SeatLabel" type="Label" parent="EjectSeat"]
+texture_filter = 1
 offset_left = 9.0
 offset_top = -0.33342
 offset_right = 49.0
 offset_bottom = 22.6666
 text = "C4"
+label_settings = SubResource("LabelSettings_55tm8")
 metadata/_edit_use_anchors_ = true
 
 [node name="DownButton" type="Button" parent="EjectSeat"]
@@ -275,10 +286,12 @@ script = ExtResource("5_7qtd6")
 
 [node name="Button" type="Button" parent="Camera Button"]
 z_index = 69
+texture_filter = 1
 offset_left = -149.0
 offset_top = -3.0
 offset_right = 79.0
 offset_bottom = 31.0
+theme = SubResource("Theme_rc7mj")
 text = "Camera"
 
 [node name="Clipboard" parent="." instance=ExtResource("13_8rbhf")]
