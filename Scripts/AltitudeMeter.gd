@@ -14,7 +14,7 @@ func _ready():
 	var tempParent = self.get_parent()
 	if tempParent is Game:
 		GameManager = tempParent
-	
+
 	if GameManager != null:
 		GameManager.targetAltitudeChanged.connect(onTargetAltitudeChange)
 
@@ -32,3 +32,4 @@ func _process(delta: float) -> void:
 	var altitude_ratio = (GameManager.currentAltitude - min_altitude) / (max_altitude - min_altitude)
 
 	$AltitudeMeter/Doodads/PlaneMarker.position.y = lerp(min_altitude_y, max_altitude_y, altitude_ratio)
+	$Progress.progress = GameManager.percentageTimeRemaining / 100.0
