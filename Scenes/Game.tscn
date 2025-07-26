@@ -17,13 +17,7 @@ properties/3/path = NodePath(".:percentageTimeRemaining")
 properties/3/spawn = true
 properties/3/replication_mode = 1
 
-[node name="Game" type="Control" node_paths=PackedStringArray("winTimer")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Game" type="Node" node_paths=PackedStringArray("winTimer")]
 script = ExtResource("1_iukft")
 winTime = 5
 winTimer = NodePath("WinTimer")

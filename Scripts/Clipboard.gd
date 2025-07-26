@@ -31,12 +31,12 @@ func on_overlay_click() -> void:
 func clear_any_overlay_on() -> void:
 	any_overlay_on = false
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not visible:
 		return
 	if event.is_pressed() and not overlay_on and not any_overlay_on:
 		on_overlay_click()
 
-func _on_overlay_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_overlay_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_pressed() and overlay_on:
 		on_overlay_click()

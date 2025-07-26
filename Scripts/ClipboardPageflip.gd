@@ -4,7 +4,7 @@ extends Node2D
 
 var current_page := 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Image.texture = images[current_page]
 	$Left.visible = current_page > 0
 	$Right.visible = current_page + 1 < len(images)

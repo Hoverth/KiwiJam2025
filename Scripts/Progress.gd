@@ -9,7 +9,7 @@ extends Node2D
 @onready var label_template: String = $Label3.text
 
 var elapsed := 0.0
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#elapsed += delta
 	#progress = 0.5 * sin(elapsed) + 0.5
 	#print(progress)

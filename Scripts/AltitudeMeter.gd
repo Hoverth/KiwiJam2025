@@ -24,7 +24,7 @@ func onTargetAltitudeChange(newAltiitude):
 	max_altitude = GameManager.getMaxAltitude()
 	min_altitude = GameManager.getMinAltitude()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$AltitudeMeter/Doodads/DeathZone1/Label.text = "%d ft" % round(max_altitude)
 	$AltitudeMeter/Doodads/DeathZone2/Label.text = "%d ft" % round(min_altitude)
 	$AltitudeMeter/Doodads/PlaneMarker/Label.text = "%d ft" % round(GameManager.currentAltitude)
