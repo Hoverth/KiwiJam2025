@@ -133,7 +133,7 @@ speed_scale = 5.0
 
 [node name="Sprite2D3" type="Sprite2D" parent="EjectSeat/AnimationPlayer"]
 modulate = Color(0.461862, 1.05888e-06, 2.64719e-07, 1)
-position = Vector2(938, 605)
+position = Vector2(850, 514)
 scale = Vector2(0.0854208, 0.0854167)
 texture = ExtResource("7_8rbhf")
 
@@ -216,5 +216,7 @@ manifest"
 [connection signal="pressed" from="EjectSeat/DownButton" to="EjectSeat" method="_on_down_button_pressed"]
 [connection signal="pressed" from="EjectSeat/EjectButton" to="EjectSeat" method="_on_eject_button_pressed"]
 [connection signal="mouse_entered" from="Camera Button/Button" to="Camera Button" method="_on_button_mouse_entered"]
+[connection signal="overlay_hidden" from="Clipboard" to="Camera Button" method="clipboard_hidden"]
+[connection signal="overlay_shown" from="Clipboard" to="Camera Button" method="clipboard_shown"]
 
 [editable path="Clipboard"]

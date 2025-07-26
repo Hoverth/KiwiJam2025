@@ -7,6 +7,9 @@ static var any_overlay_on := false
 
 @export var content: PackedScene
 
+signal overlay_shown
+signal overlay_hidden
+
 func _ready() -> void:
 	if content:
 		var content_inst := content.instantiate()
@@ -20,9 +23,10 @@ func on_overlay_click() -> void:
 	$Clipboard.visible = not overlay_on
 	if overlay_on:
 		any_overlay_on = true
+		overlay_shown.emit()
 	else:
 		call_deferred("clear_any_overlay_on")
-
+		overlay_hidden.emit()
 
 func clear_any_overlay_on() -> void:
 	any_overlay_on = false
