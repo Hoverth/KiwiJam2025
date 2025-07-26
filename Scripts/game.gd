@@ -44,7 +44,7 @@ func _ready() -> void:
 		targetAltitude = 30000
 		add_child(instance)
 		#randomAltitudeChange()
-		eventCreator()
+		#eventCreator()
 	else:
 		var instance :Node = load("res://Scenes/Controller/Station.tscn").instantiate()
 		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
@@ -189,3 +189,5 @@ func gameOver():
 func win():
 	MultiplayerSync.change_scene("res://Scenes/Win.tscn")
 	
+func _on_first_event_timer_timeout() -> void:
+	eventCreator()

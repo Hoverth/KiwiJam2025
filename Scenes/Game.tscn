@@ -30,6 +30,12 @@ script = ExtResource("2_gl6un")
 
 [node name="WinTimer" type="Timer" parent="."]
 
+[node name="first_event_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j5yw3")
 autoplay = true
+
+[connection signal="timeout" from="first_event_timer" to="." method="_on_first_event_timer_timeout"]

@@ -7,6 +7,9 @@ var gracePeriodActive = false;
 
 var tilt_angle: int
 var tilt_direction = 1
+var control_enabled = true
+
+@onready var tilt_timer = $tilt_timer
 
 var GameManager : Game
 
@@ -46,11 +49,11 @@ func _process(delta):
 		# Warning Lights and Stuff
 		pass
 	
-	if Input.is_action_pressed('up'):
+	if Input.is_action_pressed('up') and control_enabled == true:
 		GameManager.currentAltitude += 10
 		tilt_direction = 1
 		tilt_angle = 0
-	else: if Input.is_action_pressed("down"):
+	else: if Input.is_action_pressed("down") and control_enabled == true:
 		GameManager.currentAltitude += -10
 		tilt_direction = -1
 		tilt_angle = 0
@@ -59,3 +62,18 @@ func _process(delta):
 
 func _on_tilt_timer_timeout() -> void:
 	tilt_angle += 10
+
+func _on_start_timer_timeout() -> void:
+	tilt_timer.start()
+
+func _on_camera_button_camera_toggled() -> void:
+	if control_enabled == true:
+		control_enabled = false
+	else:
+		control_enabled = true
+
+func _on_clipboard_overlay_shown() -> void:
+	control_enabled = false
+
+func _on_clipboard_overlay_hidden() -> void:
+	control_enabled = true

@@ -190,6 +190,9 @@ metadata/_edit_lock_ = true
 
 [node name="tilt_timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="start_timer" type="Timer" parent="."]
+wait_time = 15.0
 autostart = true
 
 [node name="EjectSeat" type="Node2D" parent="."]
@@ -317,11 +320,15 @@ wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="tilt_timer" to="." method="_on_tilt_timer_timeout"]
+[connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="pressed" from="EjectSeat/UpButton" to="EjectSeat" method="_on_up_button_pressed"]
 [connection signal="pressed" from="EjectSeat/DownButton" to="EjectSeat" method="_on_down_button_pressed"]
 [connection signal="pressed" from="EjectSeat/EjectButton" to="EjectSeat" method="_on_eject_button_pressed"]
+[connection signal="camera_toggled" from="Camera Button" to="." method="_on_camera_button_camera_toggled"]
 [connection signal="mouse_entered" from="Camera Button/Button" to="Camera Button" method="_on_button_mouse_entered"]
+[connection signal="overlay_hidden" from="Clipboard" to="." method="_on_clipboard_overlay_hidden"]
 [connection signal="overlay_hidden" from="Clipboard" to="Camera Button" method="clipboard_hidden"]
+[connection signal="overlay_shown" from="Clipboard" to="." method="_on_clipboard_overlay_shown"]
 [connection signal="overlay_shown" from="Clipboard" to="Camera Button" method="clipboard_shown"]
 [connection signal="timeout" from="CaveSoundsPlayer/Timer" to="CaveSoundsPlayer" method="_on_timer_timeout"]
 
