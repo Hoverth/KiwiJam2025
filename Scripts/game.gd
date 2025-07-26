@@ -173,7 +173,7 @@ func format_number(altitude) -> String:
 			output = "," + output
 	
 	# lastly, output it as a string that is formatted with
-	# digits. ee
+	# digits. 
 
 	return output
 

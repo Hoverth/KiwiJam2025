@@ -65,23 +65,25 @@ texture = ExtResource("2_4atuy")
 
 [node name="name" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 190.0
-offset_top = 196.0
-offset_right = 392.0
-offset_bottom = 227.0
+offset_left = 181.429
+offset_top = 193.383
+offset_right = 383.429
+offset_bottom = 224.383
 theme = ExtResource("3_46tsd")
+theme_override_font_sizes/font_size = 13
 placeholder_text = "Enter Name"
 flat = true
 caret_blink = true
 
 [node name="roomCode" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 202.771
-offset_top = 267.767
-offset_right = 306.771
-offset_bottom = 298.767
+offset_left = 182.287
+offset_top = 266.763
+offset_right = 332.287
+offset_bottom = 297.763
 theme = ExtResource("3_46tsd")
-placeholder_text = "Room Code"
+theme_override_font_sizes/font_size = 13
+placeholder_text = "Enter Room Code"
 caret_blink = true
 
 [node name="roomLabel" type="Label" parent="Control"]
