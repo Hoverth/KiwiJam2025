@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://byj5pr0p1qy3n"]
+
+[ext_resource type="Texture2D" uid="uid://br3hrbsbf18ch" path="res://Art/Sprite/Camera.png" id="1_awv4g"]
+[ext_resource type="Script" uid="uid://dwok2ua5cvlro" path="res://Scripts/camera.gd" id="1_l1bl0"]
+[ext_resource type="Texture2D" uid="uid://b6hob4aej3phr" path="res://Art/Placeholders/Shivam.jpg" id="3_2x5u0"]
+[ext_resource type="Texture2D" uid="uid://db6s5t0wld8rl" path="res://Art/Placeholders/Business.png" id="3_bw10g"]
+[ext_resource type="Texture2D" uid="uid://bm8nwd7ip1v8g" path="res://Art/Placeholders/Jak vs Dave.png" id="3_shqlg"]
+[ext_resource type="Texture2D" uid="uid://bas8e64fa333g" path="res://Art/Placeholders/garif.jpg" id="4_tpi20"]
+[ext_resource type="Texture2D" uid="uid://bvsmb41b770ca" path="res://Art/Placeholders/stormo.jpg" id="5_cq81y"]
+[ext_resource type="Texture2D" uid="uid://buvf7va4nj50h" path="res://Art/Placeholders/Big Dave.jpg" id="7_kme37"]
+
+[node name="Camera" type="Node2D"]
+position = Vector2(577, 325)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_l1bl0")
+
+[node name="Cam 1" type="Node2D" parent="."]
+
+[node name="State 1" type="Sprite2D" parent="Cam 1"]
+position = Vector2(16, 1.52588e-05)
+scale = Vector2(1.09167, 0.615866)
+texture = ExtResource("3_2x5u0")
+
+[node name="State 2" type="Sprite2D" parent="Cam 1"]
+visible = false
+position = Vector2(11, -2.99999)
+scale = Vector2(7.45313, 7.97222)
+texture = ExtResource("3_bw10g")
+
+[node name="Cam 2" type="Node2D" parent="."]
+visible = false
+
+[node name="State 1" type="Sprite2D" parent="Cam 2"]
+position = Vector2(10.5, -5.5)
+scale = Vector2(0.769531, 0.461719)
+texture = ExtResource("3_shqlg")
+
+[node name="State 2" type="Sprite2D" parent="Cam 2"]
+visible = false
+position = Vector2(7.50002, -4.49997)
+scale = Vector2(1.91, 1.09925)
+texture = ExtResource("5_cq81y")
+
+[node name="Cam 3" type="Node2D" parent="."]
+visible = false
+
+[node name="State 1" type="Sprite2D" parent="Cam 3"]
+position = Vector2(12.5, 5)
+scale = Vector2(3.15667, 3.29762)
+texture = ExtResource("4_tpi20")
+
+[node name="State 2" type="Sprite2D" parent="Cam 3"]
+visible = false
+position = Vector2(12.5, -6.25)
+scale = Vector2(1.62417, 1.43548)
+texture = ExtResource("7_kme37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_awv4g")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-444, -218)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = 368.5
+offset_top = 170.5
+offset_right = 425.5
+offset_bottom = 201.5
+text = "Cam 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="Node2D"]
+offset_left = 330.0
+offset_top = 211.5
+offset_right = 387.0
+offset_bottom = 242.5
+text = "Cam 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Node2D"]
+offset_left = 407.0
+offset_top = 211.5
+offset_right = 459.0
+offset_bottom = 242.5
+text = "Cam3"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Node2D/Button3" to="." method="_on_button_3_pressed"]
