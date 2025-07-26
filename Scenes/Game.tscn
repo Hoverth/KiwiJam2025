@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1my53myn3yfw"]
+[gd_scene load_steps=5 format=3 uid="uid://c1my53myn3yfw"]
 
 [ext_resource type="Script" uid="uid://d07aa67ujbodc" path="res://Scripts/game.gd" id="1_iukft"]
 [ext_resource type="Script" uid="uid://d10gjcaaqxvnm" path="res://Networking/PutOnAllNetworkedObjects/multiplayer_synchronizer.gd" id="2_gl6un"]
+[ext_resource type="AudioStream" uid="uid://bsrpd3wcbxbc6" path="res://Audio/Voiceline Folder/Full introduction.wav" id="3_j5yw3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_iukft"]
 properties/0/path = NodePath(".:targetAltitude")
@@ -28,3 +29,7 @@ replication_config = SubResource("SceneReplicationConfig_iukft")
 script = ExtResource("2_gl6un")
 
 [node name="WinTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j5yw3")
+autoplay = true
