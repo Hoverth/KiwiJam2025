@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://d1qca4hgydf7p" path="res://Art/BG/ControllerStation.png" id="1_1dhem"]
 [ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="2_02phc"]
 [ext_resource type="Texture2D" uid="uid://wsok8f4uqw65" path="res://Art/Sprite/RadarContact.png" id="2_bok21"]
-[ext_resource type="Script" uid="uid://dylo3goi57crg" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
+[ext_resource type="Script" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
 [ext_resource type="Texture2D" uid="uid://rapd3dkeyjpw" path="res://Art/Sprite/DeathZone.png" id="2_xamlr"]
 [ext_resource type="Texture2D" uid="uid://cpfma8nj7c08b" path="res://Art/Sprite/RadarAlert.png" id="3_0ej5x"]
 [ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="4_5vxii"]
 [ext_resource type="Texture2D" uid="uid://c4b36kxusg8dg" path="res://Art/Sprite/Clipboard.png" id="5_0ej5x"]
-[ext_resource type="Script" uid="uid://c5sg7e2kuwwum" path="res://Scripts/Clipboard.gd" id="5_5vxii"]
+[ext_resource type="Script" path="res://Scripts/Clipboard.gd" id="5_5vxii"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="6_5vxii"]
 
 [sub_resource type="Gradient" id="Gradient_02phc"]
@@ -124,6 +124,21 @@ noise = SubResource("FastNoiseLite_1dhem")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02phc"]
 size = Vector2(307.871, 399.188)
 
+[sub_resource type="Animation" id="Animation_02phc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_5vxii"]
 resource_name = "hover_on"
 length = 0.1
@@ -138,21 +153,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1, 1.1)]
-}
-
-[sub_resource type="Animation" id="Animation_02phc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xamlr"]

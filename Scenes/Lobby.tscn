@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs1dhuqenxiwx"]
+[gd_scene load_steps=6 format=3 uid="uid://cs1dhuqenxiwx"]
 
 [ext_resource type="Script" uid="uid://k6tjrtlq7g02" path="res://Scripts/lobby.gd" id="1_bpe3w"]
+[ext_resource type="Theme" uid="uid://uj4isnoc1njp" path="res://Art/JoinMenuTheme.tres" id="2_lolwk"]
+[ext_resource type="FontFile" uid="uid://dug3fx573p5ak" path="res://Art/Fonts/JetBrainsMono-Regular.ttf" id="3_wgubu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsj2m"]
+font = ExtResource("3_wgubu")
+font_size = 21
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lolwk"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Lobby" type="Control" node_paths=PackedStringArray("RoomCodeDisplay", "PlayersDisplay")]
 layout_mode = 3
@@ -11,33 +25,101 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bpe3w")
 RoomCodeDisplay = NodePath("RoomCode")
-PlayersDisplay = NodePath("Players")
+PlayersDisplay = NodePath("PlayerPanel/PlayerVBoxContainer")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 63.0
+offset_right = 1068.0
+offset_bottom = 573.0
+theme = ExtResource("2_lolwk")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -389.5
+offset_top = -158.0
+offset_right = 390.5
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lolwk")
+text = "You play this game by communicating with your partner, in an attempt to make sure that the plane doesn't get destroyed after the pilots fall unconcious.
+
+The pilot player needs to manage the plane, and call out events like flashing indicators, alarms, and other hazards to the controller player, and follow their directions.
+
+The controller player needs to listen to the pilot and help them to resolve the issues, while paying attention to the altitude of the plane, and other things.
+
+ "
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 48.0
+offset_right = 165.0
+offset_bottom = 77.0
+text = "How To Play"
+label_settings = SubResource("LabelSettings_nsj2m")
+
+[node name="RoomCode2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.035
+offset_left = 283.0
+offset_top = 537.0
+offset_right = 327.68
+offset_bottom = 537.32
+theme = ExtResource("2_lolwk")
+text = "Flight (Room Code):"
+label_settings = SubResource("LabelSettings_lolwk")
 
 [node name="RoomCode" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.035
-offset_left = 531.0
-offset_top = 370.0
-offset_right = 575.68
-offset_bottom = 370.32
+offset_left = 474.0
+offset_top = 537.0
+offset_right = 518.68
+offset_bottom = 537.32
+theme = ExtResource("2_lolwk")
 text = "RoomCode"
 
 [node name="Players" type="Label" parent="."]
 layout_mode = 0
-offset_left = 540.0
-offset_top = 422.0
-offset_right = 597.0
-offset_bottom = 445.0
+offset_left = 14.0
+offset_top = 58.0
+offset_right = 71.0
+offset_bottom = 81.0
 text = "Players"
 
 [node name="Start Game" type="Button" parent="."]
 layout_mode = 0
-offset_left = 715.0
-offset_top = 390.0
-offset_right = 811.0
-offset_bottom = 421.0
+offset_left = 876.0
+offset_top = 531.0
+offset_right = 1053.0
+offset_bottom = 562.0
+theme = ExtResource("2_lolwk")
 text = "Start Game"
+
+[node name="PlayerPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerVBoxContainer" type="VBoxContainer" parent="PlayerPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 55.0
+offset_right = 253.0
+offset_bottom = 574.0
+theme_override_constants/separation = 72
 
 [connection signal="pressed" from="Start Game" to="." method="_on_start_game_pressed"]

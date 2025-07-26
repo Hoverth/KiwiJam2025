@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpdah7buo6lwv"]
 
-[ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
+[ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
 [ext_resource type="Texture2D" uid="uid://yelp0mv58nhl" path="res://Art/BG/Cockpit.png" id="2_d8nln"]
-[ext_resource type="Script" path="res://Scripts/eject.gd" id="4_e14br"]
+[ext_resource type="Script" uid="uid://b3amjhaexnayc" path="res://Scripts/eject.gd" id="4_e14br"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)

@@ -85,6 +85,7 @@ caret_blink = true
 caret_force_displayed = true
 
 [node name="roomLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 776.0
 offset_top = 226.0
 offset_right = 816.0
