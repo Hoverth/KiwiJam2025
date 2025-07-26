@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dug3fx573p5ak"
-path="res://.godot/imported/JetBrainsMono-Regular.ttf-906f98fba235e67b40ff193fef898c93.fontdata"
+path="res://.godot/imported/JetBrainsMono-Regular.ttf-798d4ea9e931f82ed6874ea93fceaf3c.fontdata"
 
 [deps]
 
-source_file="res://Art/Fonts/JetBrainsMono-Regular.ttf"
-dest_files=["res://.godot/imported/JetBrainsMono-Regular.ttf-906f98fba235e67b40ff193fef898c93.fontdata"]
+source_file="res://Art/Font/JetBrainsMono-Regular.ttf"
+dest_files=["res://.godot/imported/JetBrainsMono-Regular.ttf-798d4ea9e931f82ed6874ea93fceaf3c.fontdata"]
 
 [params]
 
