@@ -16,3 +16,9 @@ func _on_button_mouse_entered() -> void:
 		camera_up = false
 		eject.visible = true
 		$"../Clipboard".visible = true
+
+func clipboard_shown() -> void:
+	visible = false
+
+func clipboard_hidden() -> void:
+	visible = true
