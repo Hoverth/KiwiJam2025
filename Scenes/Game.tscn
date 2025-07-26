@@ -7,6 +7,9 @@
 properties/0/path = NodePath(".:targetAltitude")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:currentAltitude")
+properties/1/spawn = true
+properties/1/replication_mode = 1
 
 [node name="Game" type="Control" node_paths=PackedStringArray("altitudeLabel")]
 layout_mode = 3

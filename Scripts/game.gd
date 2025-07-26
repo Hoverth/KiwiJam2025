@@ -1,21 +1,64 @@
 extends Control
 
+class_name Game
+
+@export var gracePeriodActive = false
+@export var gracePeriodTime = 5
 @export var altitudeLabel:Label
-@export var targetAltitudeChangeTime : int = 3
+
+@export var altitude_buffer : int  = 10000
+
+@export var currentAltitude : int
+@export var randomAltitudeChangeTime : int = 20
 @export var targetAltitude = 30 :
 	set = receivedNewAltitude
 	
-func _ready() -> void:
-	if(is_multiplayer_authority()):
-		targetAltitudeChange()
+signal targetAltitudeChanged(newAltitude)
 
-func targetAltitudeChange():
-	print("HERE")
-	var rng = RandomNumberGenerator.new()
-	targetAltitude = rng.randi_range(10000,50000)
-	await get_tree().create_timer(targetAltitudeChangeTime).timeout  
-	targetAltitudeChange()
+func _ready() -> void:
 	
+	# Spawn the seperate scenes and start timer coroutines
+	if(is_multiplayer_authority()):
+		var instance :Node = load("res://Scenes/Pilot/Cockpit.tscn").instantiate()
+		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
+		currentAltitude = 30000
+		targetAltitude = 30000
+		add_child(instance)
+		randomAltitudeChange()
+	else:
+		var instance :Node = load("res://Scenes/Controller/Station.tscn").instantiate()
+		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
+		add_child(instance)
+
+func _process(delta: float) -> void:
+	if !is_multiplayer_authority():
+		return
+	
+	print(gracePeriodActive)
+	if !gracePeriodActive:
+		if currentAltitude >= getMaxAltitude() || currentAltitude <= getMinAltitude():
+				gameOver()		
+
+func gracePeriodTimer():
+	gracePeriodActive = true
+	await get_tree().create_timer(gracePeriodTime).timeout  
+	gracePeriodActive = false
+
+func randomAltitudeChange():
+	await get_tree().create_timer(randomAltitudeChangeTime).timeout
+	gracePeriodTimer()
+	var rng = RandomNumberGenerator.new()
+	if(rng.randi_range(0,1)):
+		currentAltitude += rng.randi_range(10000,20000)
+	else:
+		currentAltitude -= rng.randi_range(10000,20000)
+	randomAltitudeChange()
+
+func receivedNewAltitude(newAltitude):
+	targetAltitude = newAltitude # remember to set var to new value
+	altitudeLabel.text = "TARGET ALTITUDE : %s ft" % [format_number(targetAltitude)]
+	targetAltitudeChanged.emit(targetAltitude)
+
 func format_number(altitude) -> String:
 	# first, convert the altitude number to a string
 	var convert_number : String = str(altitude)
@@ -39,7 +82,13 @@ func format_number(altitude) -> String:
 
 	return output
 
-func receivedNewAltitude(newAltitude):
-	targetAltitude = newAltitude # remember to set var to new value
-	altitudeLabel.text = "TARGET ALTITUDE : %s ft" % [format_number(targetAltitude)]
+func getMinAltitude():
+	return targetAltitude - altitude_buffer
+
+func getMaxAltitude():
+	return targetAltitude + altitude_buffer
+
+func gameOver():
+	MultiplayerSync.change_scene("res://Scenes/GameOver.tscn")
+
 	
