@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs5ikpa6el7c3"]
+[gd_scene load_steps=5 format=3 uid="uid://cs5ikpa6el7c3"]
 
 [ext_resource type="Script" uid="uid://bm6vh1cstb28l" path="res://Scripts/ClipboardPageflip.gd" id="1_i41by"]
 [ext_resource type="Texture2D" uid="uid://d1fx1q4cq0l7a" path="res://Art/BG/PassengerLists/PassengerListPilotView.png" id="2_2pc72"]
 [ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="3_2pc72"]
+[ext_resource type="Texture2D" uid="uid://dihfealup8ubj" path="res://Art/BG/PassengerLists/CameraTutorial.png" id="3_hrhnj"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_i41by")
-images = Array[Texture2D]([ExtResource("2_2pc72")])
+images = Array[Texture2D]([ExtResource("2_2pc72"), ExtResource("3_hrhnj")])
 metadata/_edit_lock_ = true
 
 [node name="Image" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_2pc72")
 metadata/_edit_lock_ = true
