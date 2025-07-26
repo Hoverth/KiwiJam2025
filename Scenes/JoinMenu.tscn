@@ -11,39 +11,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7be0v")
 
-[node name="name" type="LineEdit" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 353.0
-offset_right = 519.0
-offset_bottom = 384.0
+offset_left = 25.0
+offset_top = 505.0
+offset_right = 382.0
+offset_bottom = 623.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = -50.0
+offset_right = 167.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="LineEdit" parent="Panel/VBoxContainer"]
+layout_mode = 2
 placeholder_text = "Your Name"
 
-[node name="roomCode" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 383.0
-offset_top = 393.0
-offset_right = 497.0
-offset_bottom = 424.0
+[node name="roomCode" type="LineEdit" parent="Panel/VBoxContainer"]
+layout_mode = 2
 placeholder_text = "Room Code"
 
-[node name="Host" type="Button" parent="."]
-layout_mode = 0
-offset_left = 407.0
-offset_top = 439.0
-offset_right = 450.0
-offset_bottom = 470.0
-text = "host"
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
 
-[node name="Join" type="Button" parent="."]
-layout_mode = 0
-offset_left = 414.0
-offset_top = 482.0
-offset_right = 452.0
-offset_bottom = 513.0
+[node name="Host" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Host"
+
+[node name="Join" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Join"
 
-[connection signal="text_changed" from="name" to="." method="_on_name_text_changed"]
-[connection signal="text_changed" from="roomCode" to="." method="_on_room_code_text_changed"]
-[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
+[connection signal="text_changed" from="Panel/VBoxContainer/name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="Panel/VBoxContainer/roomCode" to="." method="_on_room_code_text_changed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Join" to="." method="_on_join_pressed"]
