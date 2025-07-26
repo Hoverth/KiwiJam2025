@@ -49,11 +49,6 @@ visibility_rect = Rect2(-500, -500, 1000, 1000)
 process_material = SubResource("ParticleProcessMaterial_x7say")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(580.687, 378.125)
-scale = Vector2(1.5555, 1.5555)
-metadata/_edit_lock_ = true
-
 [node name="Cockpit" type="Sprite2D" parent="."]
 position = Vector2(576, 378.62)
 scale = Vector2(1.2, 1.2)
@@ -65,7 +60,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="EjectSeat" type="Node2D" parent="."]
-position = Vector2(833, 527)
+position = Vector2(833, 475)
 scale = Vector2(3, 3)
 script = ExtResource("4_e14br")
 
@@ -101,7 +96,7 @@ text = "Eject"
 visible = false
 
 [node name="Camera Button" type="Node2D" parent="."]
-position = Vector2(457, 607)
+position = Vector2(453, 552)
 scale = Vector2(3, 3)
 script = ExtResource("5_7qtd6")
 
