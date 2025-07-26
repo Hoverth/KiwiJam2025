@@ -11,6 +11,13 @@ func _ready():
 	target_seat = seat_list[target_int]
 	seat_label.text = seat_list[seat_index]
 	
+	for i in 10:
+		$AnimationPlayer.queue("flash_r")
+		$AnimationPlayer.queue("flash_g")
+		$AnimationPlayer.queue("flash_b")
+		$AnimationPlayer.queue("flash_y")
+		$AnimationPlayer.queue("flash_blank")
+	
 func _on_up_button_pressed() -> void:
 	if seat_index > 0:
 		seat_index -= 1

@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=28 format=3 uid="uid://bpdah7buo6lwv"]
 
-[ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
+[ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
 [ext_resource type="Texture2D" uid="uid://yelp0mv58nhl" path="res://Art/BG/Cockpit.png" id="2_d8nln"]
 [ext_resource type="Script" uid="uid://b3amjhaexnayc" path="res://Scripts/eject.gd" id="4_e14br"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://m5cxxvbqoge2" path="res://Art/BG/Eject/DownButton.png" id="7_1kq3k"]
 [ext_resource type="Texture2D" uid="uid://b6m8ne0c2fu5s" path="res://Art/BG/OverweightLoadCapacity/Light.png" id="7_8rbhf"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
-[ext_resource type="PackedScene" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
+[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
@@ -47,11 +47,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.461862, 1.05888e-06, 2.64719e-07, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_1kq3k"]
-resource_name = "flash"
+[sub_resource type="Animation" id="Animation_k633s"]
+resource_name = "flash_b"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,16 +60,84 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.52, 0.98),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 1.3333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.461862, 1.05888e-06, 2.64719e-07, 1), Color(0.961518, 4.45209e-06, 9.62615e-07, 1), Color(0.468327, 1.10099e-06, 1.68458e-07, 1)]
+"values": [Color(0.321569, 0.454902, 0.996078, 0), Color(0.320157, 0.453306, 0.996108, 1), Color(0.321569, 0.454902, 0.996078, 1), Color(0.321569, 0.454902, 0.996078, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_itmyg"]
+resource_name = "flash_blank"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_thmgk"]
+resource_name = "flash_g"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.3333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.619608, 0.223529, 0), Color(0, 0.620114, 0.222897, 1), Color(0, 0.620114, 0.222897, 1), Color(0, 0.619608, 0.223529, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8v4p4"]
+resource_name = "flash_r"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.3333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.952941, 0, 0.25098, 0), Color(0.952304, 0, 0.249125, 1), Color(0.952941, 0, 0.25098, 1), Color(0.952941, 0, 0.25098, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w4qim"]
+resource_name = "flash_y"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.3333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.862745, 0.686275, 0, 0), Color(0.862745, 0.686275, 0, 1), Color(0.863633, 0.686493, 3.85046e-07, 1), Color(0.862745, 0.686275, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thmgk"]
 _data = {
 &"RESET": SubResource("Animation_8rbhf"),
-&"flash": SubResource("Animation_1kq3k")
+&"flash_b": SubResource("Animation_k633s"),
+&"flash_blank": SubResource("Animation_itmyg"),
+&"flash_g": SubResource("Animation_thmgk"),
+&"flash_r": SubResource("Animation_8v4p4"),
+&"flash_y": SubResource("Animation_w4qim")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co2gk"]
@@ -120,7 +189,7 @@ scale = Vector2(0.0870079, 0.0870079)
 texture = ExtResource("5_2ikyy")
 
 [node name="Sprite2D2" type="Sprite2D" parent="EjectSeat"]
-position = Vector2(18, 59.3333)
+position = Vector2(18, 60)
 scale = Vector2(0.0287322, 0.0284722)
 texture = ExtResource("6_1kq3k")
 
@@ -129,12 +198,13 @@ root_node = NodePath("Sprite2D3")
 libraries = {
 &"": SubResource("AnimationLibrary_thmgk")
 }
-speed_scale = 5.0
+autoplay = "RESET"
+speed_scale = 2.0
 
 [node name="Sprite2D3" type="Sprite2D" parent="EjectSeat/AnimationPlayer"]
-modulate = Color(0.461862, 1.05888e-06, 2.64719e-07, 1)
-position = Vector2(850, 514)
-scale = Vector2(0.0854208, 0.0854167)
+modulate = Color(1, 1, 1, 0)
+position = Vector2(850, 516)
+scale = Vector2(0.085, 0.085)
 texture = ExtResource("7_8rbhf")
 
 [node name="UpButton" type="Button" parent="EjectSeat"]
