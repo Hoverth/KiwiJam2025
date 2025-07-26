@@ -45,5 +45,6 @@ func _on_room_code_text_changed(new_text: String) -> void:
 
 	if (RoomCode != "") and (PlayerName != ""):
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
 	else:
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
