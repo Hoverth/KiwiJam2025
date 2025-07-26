@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cisdjqfhc7e2c" path="res://Scripts/joinMenu.gd" id="1_7be0v"]
 [ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
-[ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
-[ext_resource type="Theme" uid="uid://uj4isnoc1njp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
+[ext_resource type="Script" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
+[ext_resource type="Theme" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
 
 [node name="JoinMenu" type="Control"]
 layout_mode = 3
