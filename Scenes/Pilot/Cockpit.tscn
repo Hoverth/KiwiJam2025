@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=18 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bumi4p0sioj5p" path="res://Art/BG/Eject/EjectUi.png" id="5_2ikyy"]
 [ext_resource type="Script" uid="uid://df21jlj66kk10" path="res://Scripts/camera_button.gd" id="5_7qtd6"]
 [ext_resource type="PackedScene" uid="uid://byj5pr0p1qy3n" path="res://Scenes/Pilot/camera.tscn" id="5_w6ady"]
+[ext_resource type="Texture2D" uid="uid://dhsjafwxtd60h" path="res://Art/BG/OverweightLoadCapacity/loadCapacityHorizontal.png" id="6_1kq3k"]
 [ext_resource type="Texture2D" uid="uid://btapifpw7mpfw" path="res://Art/BG/Eject/UpButton.png" id="6_co2gk"]
 [ext_resource type="Texture2D" uid="uid://m5cxxvbqoge2" path="res://Art/BG/Eject/DownButton.png" id="7_1kq3k"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
@@ -70,7 +71,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="EjectSeat" type="Node2D" parent="."]
-position = Vector2(833, 475)
+position = Vector2(884, 427)
 scale = Vector2(3, 3)
 script = ExtResource("4_e14br")
 
@@ -79,6 +80,11 @@ position = Vector2(18, 16)
 scale = Vector2(0.0870079, 0.0870079)
 texture = ExtResource("5_2ikyy")
 
+[node name="Sprite2D2" type="Sprite2D" parent="EjectSeat"]
+position = Vector2(18, 59.3333)
+scale = Vector2(0.0287322, 0.0284722)
+texture = ExtResource("6_1kq3k")
+
 [node name="UpButton" type="Button" parent="EjectSeat"]
 offset_left = 12.6666
 offset_top = -15.6667
@@ -86,6 +92,7 @@ offset_right = 24.6666
 offset_bottom = -2.66667
 theme_override_styles/focus = SubResource("StyleBoxEmpty_co2gk")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EjectSeat/UpButton"]
 position = Vector2(5.66748, 6.00012)
@@ -98,6 +105,7 @@ offset_top = -0.33342
 offset_right = 49.0
 offset_bottom = 22.6666
 text = "C4"
+metadata/_edit_use_anchors_ = true
 
 [node name="DownButton" type="Button" parent="EjectSeat"]
 offset_left = 6.0
@@ -106,6 +114,7 @@ offset_right = 31.0
 offset_bottom = 43.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1kq3k")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EjectSeat/DownButton"]
 position = Vector2(12.3333, 5.33374)
@@ -113,12 +122,13 @@ scale = Vector2(0.084, 0.084)
 texture = ExtResource("7_1kq3k")
 
 [node name="EjectButton" type="Button" parent="EjectSeat"]
-offset_left = 49.0
-offset_top = 1.0
-offset_right = 94.0
-offset_bottom = 32.0
+offset_left = 36.6667
+offset_top = 12.3333
+offset_right = 81.6667
+offset_bottom = 43.3333
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2ikyy")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EjectSeat/EjectButton"]
 position = Vector2(22.6667, 16.9999)
@@ -136,7 +146,7 @@ script = ExtResource("5_7qtd6")
 [node name="Button" type="Button" parent="Camera Button"]
 offset_left = -149.0
 offset_top = -3.0
-offset_right = 111.0
+offset_right = 130.0
 offset_bottom = 31.0
 text = "Camera"
 
