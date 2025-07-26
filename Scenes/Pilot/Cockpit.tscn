@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=19 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhsjafwxtd60h" path="res://Art/BG/OverweightLoadCapacity/loadCapacityHorizontal.png" id="6_1kq3k"]
 [ext_resource type="Texture2D" uid="uid://btapifpw7mpfw" path="res://Art/BG/Eject/UpButton.png" id="6_co2gk"]
 [ext_resource type="Texture2D" uid="uid://m5cxxvbqoge2" path="res://Art/BG/Eject/DownButton.png" id="7_1kq3k"]
+[ext_resource type="Texture2D" uid="uid://b6m8ne0c2fu5s" path="res://Art/BG/OverweightLoadCapacity/Light.png" id="7_8rbhf"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
@@ -84,6 +85,11 @@ texture = ExtResource("5_2ikyy")
 position = Vector2(18, 59.3333)
 scale = Vector2(0.0287322, 0.0284722)
 texture = ExtResource("6_1kq3k")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EjectSeat"]
+position = Vector2(17.9999, 59.3333)
+scale = Vector2(0.0284736, 0.0284722)
+texture = ExtResource("7_8rbhf")
 
 [node name="UpButton" type="Button" parent="EjectSeat"]
 offset_left = 12.6666
