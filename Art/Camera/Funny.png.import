@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ol3oeb285dn"
-path="res://.godot/imported/Funny 2.png-861f96cf4e90b7f35ecf6e4e6852c2aa.ctex"
+uid="uid://doh1qbcx8gx3i"
+path="res://.godot/imported/Funny.png-ce5a3fe3ff3abf7a5b89a1b8631ceefb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BG/Backgrounds/Funny 2.png"
-dest_files=["res://.godot/imported/Funny 2.png-861f96cf4e90b7f35ecf6e4e6852c2aa.ctex"]
+source_file="res://Art/Camera/Funny.png"
+dest_files=["res://.godot/imported/Funny.png-ce5a3fe3ff3abf7a5b89a1b8631ceefb.ctex"]
 
 [params]
 
