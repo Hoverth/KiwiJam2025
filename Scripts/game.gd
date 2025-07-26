@@ -9,7 +9,7 @@ class_name Game
 @export var altitude_buffer : int  = 10000
 
 @export var currentAltitude : int
-@export var randomAltitudeChangeTime : int = 20
+@export var randomAltitudeChangeTime : int = 10
 @export var targetAltitude = 30 :
 	set = receivedNewAltitude
 	
@@ -49,9 +49,9 @@ func randomAltitudeChange():
 	gracePeriodTimer()
 	var rng = RandomNumberGenerator.new()
 	if(rng.randi_range(0,1)):
-		currentAltitude += rng.randi_range(10000,20000)
+		currentAltitude += rng.randi_range(5000,10000)
 	else:
-		currentAltitude -= rng.randi_range(10000,20000)
+		currentAltitude -= rng.randi_range(5000,10000)
 	randomAltitudeChange()
 
 func receivedNewAltitude(newAltitude):
