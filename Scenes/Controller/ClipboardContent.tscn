@@ -1,31 +1,56 @@
 [gd_scene load_steps=4 format=3 uid="uid://dur1vojmdxhph"]
 
+[ext_resource type="Script" uid="uid://bm6vh1cstb28l" path="res://Scripts/ClipboardPageflip.gd" id="1_ask8o"]
 [ext_resource type="Texture2D" uid="uid://c4b36kxusg8dg" path="res://Art/Sprite/Clipboard.png" id="1_kqwh1"]
-[ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="2_tbt5a"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kqwh1"]
-font = ExtResource("2_tbt5a")
-font_size = 48
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="3_tbt5a"]
 
 [node name="Node2D" type="Node2D"]
-metadata/_edit_group_ = true
+script = ExtResource("1_ask8o")
+images = Array[Texture2D]([ExtResource("1_kqwh1"), ExtResource("1_kqwh1")])
 metadata/_edit_lock_ = true
 
-[node name="Clipboard2" type="Sprite2D" parent="."]
+[node name="Image" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_kqwh1")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Right" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 251.0
+offset_top = -48.0
+offset_right = 347.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
 texture_filter = 1
-offset_left = -101.0
-offset_top = -90.0
-offset_right = 103.0
-offset_bottom = 117.0
-text = "Blah blah
-blah blah
-blah"
-label_settings = SubResource("LabelSettings_kqwh1")
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
+position = Vector2(51, 42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_tbt5a")
+
+[node name="Left" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -347.0
+offset_top = -48.0
+offset_right = -251.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+texture_filter = 1
+position = Vector2(51, 42)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("3_tbt5a")
+
+[connection signal="pressed" from="Right" to="." method="right"]
+[connection signal="pressed" from="Left" to="." method="left"]
