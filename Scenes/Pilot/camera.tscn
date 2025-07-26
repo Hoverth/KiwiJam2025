@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://byj5pr0p1qy3n"]
+[gd_scene load_steps=20 format=3 uid="uid://byj5pr0p1qy3n"]
 
 [ext_resource type="Script" uid="uid://dwok2ua5cvlro" path="res://Scripts/camera.gd" id="1_l1bl0"]
-[ext_resource type="Texture2D" uid="uid://b6hob4aej3phr" path="res://Art/Placeholders/Shivam.jpg" id="3_2x5u0"]
-[ext_resource type="Texture2D" uid="uid://db6s5t0wld8rl" path="res://Art/Placeholders/Business.png" id="3_bw10g"]
+[ext_resource type="Texture2D" uid="uid://bp2hp57tc8aen" path="res://Art/Camera/happy_people_on_plane_px.png" id="2_2ysbw"]
+[ext_resource type="Texture2D" uid="uid://b8aqr303wqtxj" path="res://Art/Camera/shocked_people_on_plane_px.png" id="3_0v8vy"]
 [ext_resource type="Texture2D" uid="uid://bm8nwd7ip1v8g" path="res://Art/Placeholders/Jak vs Dave.png" id="3_shqlg"]
+[ext_resource type="AudioStream" uid="uid://dm0cdmvfqv8gu" path="res://Audio/SoundEffects/Alarm Blare.wav" id="4_0v8vy"]
 [ext_resource type="Texture2D" uid="uid://bas8e64fa333g" path="res://Art/Placeholders/garif.jpg" id="4_tpi20"]
 [ext_resource type="Texture2D" uid="uid://bvsmb41b770ca" path="res://Art/Placeholders/stormo.jpg" id="5_cq81y"]
 [ext_resource type="Texture2D" uid="uid://buvf7va4nj50h" path="res://Art/Placeholders/Big Dave.jpg" id="7_kme37"]
@@ -11,6 +12,50 @@
 [ext_resource type="Texture2D" uid="uid://dltmv8in5xjdp" path="res://Art/BG/Camera/PlaneCamIcon.png" id="9_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://cl7nvndqlxxtc" path="res://Art/BG/Camera/TextBoxBig.png" id="10_0v8vy"]
 [ext_resource type="Texture2D" uid="uid://dutykiy7snk07" path="res://Art/BG/Camera/TextBoxSmall.png" id="11_bbha4"]
+
+[sub_resource type="Gradient" id="Gradient_bbha4"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i6k7c"]
+gradient = SubResource("Gradient_bbha4")
+
+[sub_resource type="Animation" id="Animation_bbha4"]
+resource_name = "flashing camera"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.670588, 0, 0, 0), Color(0.670588, 0, 0, 0.435294), Color(0.670588, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i6k7c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.670588, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ceagg"]
+_data = {
+&"RESET": SubResource("Animation_i6k7c"),
+&"flashing camera": SubResource("Animation_bbha4")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6k7c"]
 font_size = 22
@@ -25,15 +70,38 @@ script = ExtResource("1_l1bl0")
 position = Vector2(60, -1)
 
 [node name="State 1" type="Sprite2D" parent="Cam 1"]
+visible = false
 position = Vector2(516, 325)
-scale = Vector2(1.2, 0.676409)
-texture = ExtResource("3_2x5u0")
+scale = Vector2(1.92, 1.62)
+texture = ExtResource("2_2ysbw")
 
 [node name="State 2" type="Sprite2D" parent="Cam 1"]
-visible = false
-position = Vector2(11, -2.99999)
-scale = Vector2(7.45313, 7.97222)
-texture = ExtResource("3_bw10g")
+position = Vector2(517.5, 325.5)
+scale = Vector2(1.9214, 1.61347)
+texture = ExtResource("3_0v8vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cam 1/State 2"]
+modulate = Color(0, 0, 0, 0.686275)
+position = Vector2(-1.16705, 0.734146)
+scale = Vector2(9.3477, 6.30079)
+texture = SubResource("GradientTexture2D_i6k7c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cam 1/State 2"]
+libraries = {
+&"": SubResource("AnimationLibrary_ceagg")
+}
+autoplay = "flashing camera"
+speed_scale = 1.5
+
+[node name="Sprite2D2" type="Sprite2D" parent="Cam 1/State 2/AnimationPlayer"]
+modulate = Color(0.670588, 0, 0, 0)
+position = Vector2(575.258, 325.685)
+scale = Vector2(17.9607, 10.1661)
+texture = SubResource("GradientTexture2D_i6k7c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Cam 1/State 2/AnimationPlayer"]
+stream = ExtResource("4_0v8vy")
+autoplay = true
 
 [node name="Cam 2" type="Node2D" parent="."]
 visible = false
@@ -66,8 +134,8 @@ texture = ExtResource("7_kme37")
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Camera Border" type="Sprite2D" parent="Background"]
-position = Vector2(575, 323)
-scale = Vector2(1.07681, 0.99532)
+position = Vector2(573.125, 321)
+scale = Vector2(1.08035, 1.00156)
 texture = ExtResource("8_cq81y")
 
 [node name="Plane" type="Sprite2D" parent="Background"]
