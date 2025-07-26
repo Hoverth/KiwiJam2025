@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cisdjqfhc7e2c" path="res://Scripts/joinMenu.gd" id="1_7be0v"]
 [ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
-[ext_resource type="Script" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
-[ext_resource type="Theme" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
+[ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
+[ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
 
 [node name="JoinMenu" type="Control"]
 layout_mode = 3
@@ -76,10 +76,10 @@ caret_blink = true
 
 [node name="roomCode" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 181.0
-offset_top = 262.0
-offset_right = 285.0
-offset_bottom = 293.0
+offset_left = 192.6
+offset_top = 251.245
+offset_right = 296.6
+offset_bottom = 282.245
 theme = ExtResource("3_46tsd")
 placeholder_text = "Room Code"
 caret_blink = true
@@ -91,7 +91,6 @@ offset_top = 226.0
 offset_right = 816.0
 offset_bottom = 249.0
 theme = ExtResource("3_46tsd")
-text = "FLIGHT"
 
 [node name="nameLabel" type="Label" parent="Control"]
 layout_mode = 0
@@ -100,7 +99,6 @@ offset_top = 192.0
 offset_right = 817.0
 offset_bottom = 215.0
 theme = ExtResource("3_46tsd")
-text = "Name"
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Join" to="." method="_on_join_pressed"]
