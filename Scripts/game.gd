@@ -2,10 +2,14 @@ extends Control
 
 class_name Game
 
+
+
 @export var gracePeriodActive = false
 @export var gracePeriodTime = 5
-@export var altitudeLabel:Label
 
+@export var winTime : int = 120
+@export var percentageTimeRemaining : int
+@export var winTimer : Timer
 @export var altitude_buffer : int  = 10000
 
 @export var currentAltitude : int
@@ -16,9 +20,11 @@ class_name Game
 signal targetAltitudeChanged(newAltitude)
 
 func _ready() -> void:
-	
 	# Spawn the seperate scenes and start timer coroutines
 	if(is_multiplayer_authority()):
+		winTimer.one_shot = true
+		winTimer.timeout.connect(win)
+		winTimer.start(winTime)
 		var instance :Node = load("res://Scenes/Pilot/Cockpit.tscn").instantiate()
 		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
 		currentAltitude = 30000
@@ -30,11 +36,17 @@ func _ready() -> void:
 		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
 		add_child(instance)
 
+
 func _process(delta: float) -> void:
+	
 	if !is_multiplayer_authority():
 		return
 	
-	print(gracePeriodActive)
+	percentageTimeRemaining = (1 - (winTimer.time_left/winTime)) * 100
+	if (not winTimer.is_stopped()):
+		print(winTimer.time_left)
+		print(percentageTimeRemaining)
+		
 	if !gracePeriodActive:
 		if currentAltitude >= getMaxAltitude() || currentAltitude <= getMinAltitude():
 				gameOver()		
@@ -44,6 +56,8 @@ func gracePeriodTimer():
 	await get_tree().create_timer(gracePeriodTime).timeout  
 	gracePeriodActive = false
 
+
+	
 func randomAltitudeChange():
 	await get_tree().create_timer(randomAltitudeChangeTime).timeout
 	gracePeriodTimer()
@@ -56,7 +70,6 @@ func randomAltitudeChange():
 
 func receivedNewAltitude(newAltitude):
 	targetAltitude = newAltitude # remember to set var to new value
-	altitudeLabel.text = "TARGET ALTITUDE : %s ft" % [format_number(targetAltitude)]
 	targetAltitudeChanged.emit(targetAltitude)
 
 func format_number(altitude) -> String:
@@ -91,4 +104,6 @@ func getMaxAltitude():
 func gameOver():
 	MultiplayerSync.change_scene("res://Scenes/GameOver.tscn")
 
+func win():
+	print("YOU WON THE GAME")
 	

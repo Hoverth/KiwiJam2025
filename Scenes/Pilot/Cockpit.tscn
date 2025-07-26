@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://bpdah7buo6lwv"]
 
-[ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
+[ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
 [ext_resource type="Texture2D" uid="uid://yelp0mv58nhl" path="res://Art/BG/Cockpit.png" id="2_d8nln"]
 [ext_resource type="Script" uid="uid://b3amjhaexnayc" path="res://Scripts/eject.gd" id="4_e14br"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
 [ext_resource type="AudioStream" uid="uid://cp6dmijpc0ppl" path="res://Audio/SoundEffects/Plane Noise.wav" id="15_jhn3y"]
-[ext_resource type="Script" uid="uid://ke8jntg0qlfs" path="res://Scripts/CaveSounds.gd" id="15_k633s"]
+[ext_resource type="Script" path="res://Scripts/CaveSounds.gd" id="15_k633s"]
 [ext_resource type="AudioStream" uid="uid://b7vkg7srhoby4" path="res://Audio/SoundEffects/taping an american to a chair.wav" id="16_3fnkp"]
 [ext_resource type="AudioStream" uid="uid://2bxda4l1n6uc" path="res://Audio/SoundEffects/plane bing bong.wav" id="17_jhn3y"]
 [ext_resource type="AudioStream" uid="uid://rp6h8gisolpy" path="res://Audio/SoundEffects/metal piple falling.wav" id="18_rc7mj"]

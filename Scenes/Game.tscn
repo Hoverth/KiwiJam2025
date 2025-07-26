@@ -10,8 +10,14 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:currentAltitude")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath(".:gracePeriodActive")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:percentageTimeRemaining")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
-[node name="Game" type="Control" node_paths=PackedStringArray("altitudeLabel")]
+[node name="Game" type="Control" node_paths=PackedStringArray("winTimer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,16 +25,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iukft")
-altitudeLabel = NodePath("Altitude")
-
-[node name="Altitude" type="Label" parent="."]
-layout_mode = 0
-offset_left = 552.0
-offset_top = 308.0
-offset_right = 614.0
-offset_bottom = 331.0
-text = "Altitude"
+winTime = 5
+winTimer = NodePath("WinTimer")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_iukft")
 script = ExtResource("2_gl6un")
+
+[node name="WinTimer" type="Timer" parent="."]

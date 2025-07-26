@@ -16,17 +16,15 @@ func _ready():
 		GameManager = tempParent
 	
 	if GameManager != null:
-		
 		pass
 	target_altitude = GameManager.targetAltitude
-	
 
 
 func _process(delta):
-
 	if GameManager.gracePeriodActive:
-		pass
 		# Warning Lights and Stuff
+		pass
+		
 		
 	if Input.is_action_pressed('up'):
 		GameManager.currentAltitude += 10
