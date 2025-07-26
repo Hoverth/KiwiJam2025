@@ -5,7 +5,7 @@ extends Control
 var webSocketBridge : WebsocketBridge
 func _ready() -> void:
 	if BridgeHandler.WebsiteBridgeEnabled:
-		MultiplayerSync.change_scene("res://scenes/UI/levelSelect.tscn")
+		MultiplayerSync.change_scene("res://Scenes/Lobby.tscn")
 	else:
 		webSocketBridge = BridgeHandler.currentBridge
 		webSocketBridge.HostSuccess.connect(on_host_success)

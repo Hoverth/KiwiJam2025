@@ -19,8 +19,9 @@ properties/3/replication_mode = 1
 
 [node name="Game" type="Node" node_paths=PackedStringArray("winTimer")]
 script = ExtResource("1_iukft")
-winTime = 5
+winTime = 240
 winTimer = NodePath("WinTimer")
+cameraDeathTime = 30
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_iukft")

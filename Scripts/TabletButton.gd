@@ -3,7 +3,7 @@ extends ColorRect
 @export var progress_max_px := 312.0
 @export var progress := 0.0
 # increment per second
-@export var progress_speed := 0.1
+@export var progress_speed := 0.4
 @export var loss_speed := -0.1
 @export var done_color: Color = Color.PALE_GREEN
 @onready var original_color: Color = $ProgressRect.color
