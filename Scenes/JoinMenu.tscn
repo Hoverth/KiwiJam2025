@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_7be0v")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 726.0
 offset_top = 451.0
@@ -39,11 +40,13 @@ layout_mode = 2
 alignment = 1
 
 [node name="Host" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Host"
 
 [node name="Join" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Join"
@@ -63,25 +66,46 @@ position = Vector2(569, 269)
 scale = Vector2(0.20902, 0.20902)
 texture = ExtResource("2_4atuy")
 
+[node name="Label2" type="Label" parent="Control"]
+offset_left = 235.037
+offset_top = 229.01
+offset_right = 592.037
+offset_bottom = 252.01
+theme_override_colors/font_color = Color(0.942429, 0.192935, 0.35919, 1)
+theme_override_font_sizes/font_size = 10
+text = "*"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 224.905
+offset_top = 175.093
+offset_right = 581.905
+offset_bottom = 198.093
+theme_override_colors/font_color = Color(0.942429, 0.192935, 0.35919, 1)
+theme_override_font_sizes/font_size = 10
+text = "*"
+
 [node name="name" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 190.0
-offset_top = 196.0
-offset_right = 392.0
-offset_bottom = 227.0
+offset_left = 181.429
+offset_top = 193.383
+offset_right = 383.429
+offset_bottom = 224.383
 theme = ExtResource("3_46tsd")
+theme_override_font_sizes/font_size = 13
 placeholder_text = "Enter Name"
 flat = true
 caret_blink = true
 
 [node name="roomCode" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 202.771
-offset_top = 267.767
-offset_right = 306.771
-offset_bottom = 298.767
+offset_left = 182.287
+offset_top = 266.763
+offset_right = 332.287
+offset_bottom = 297.763
 theme = ExtResource("3_46tsd")
-placeholder_text = "Room Code"
+theme_override_font_sizes/font_size = 13
+placeholder_text = "Enter Room Code"
 caret_blink = true
 
 [node name="roomLabel" type="Label" parent="Control"]
