@@ -27,7 +27,6 @@ scale = Vector2(10000, 10000)
 texture = ExtResource("1_k52d1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-visible = false
 position = Vector2(219, 279)
 amount = 100
 texture = ExtResource("1_k52d1")
@@ -46,7 +45,6 @@ scale_amount_max = 30.0
 color = Color(0.482353, 0.482353, 0.482353, 1)
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-visible = false
 position = Vector2(211, 283)
 amount = 50
 texture = ExtResource("1_k52d1")
