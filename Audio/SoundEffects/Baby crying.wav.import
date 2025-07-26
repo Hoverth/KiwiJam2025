@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dat6ekecxk5iv"
+path="res://.godot/imported/Baby crying.wav-9d9d0ebc06aaca1d187f04e91feecb81.sample"
+
+[deps]
+
+source_file="res://Audio/SoundEffects/Baby crying.wav"
+dest_files=["res://.godot/imported/Baby crying.wav-9d9d0ebc06aaca1d187f04e91feecb81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
