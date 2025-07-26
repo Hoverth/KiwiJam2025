@@ -1,8 +1,8 @@
 extends Control
-
+@export var PlayerResource: PackedScene = preload("res://Scenes/Resources/ClippedBoardingPass.tscn")
 
 @export var RoomCodeDisplay : Label
-@export var PlayersDisplay : Label
+@export var PlayersDisplay : Control 
 func _ready() -> void:
 	updateRoomCode()
 	updatePlayers()
@@ -10,14 +10,23 @@ func _ready() -> void:
 	MultiplayerRoom.onRoomCodeChanged.connect(updateRoomCode)
 	
 func updateRoomCode():
-	RoomCodeDisplay.text = "Room Code : %s" % [MultiplayerRoom.room_code]
+	RoomCodeDisplay.text = "%s" % [MultiplayerRoom.room_code]
 
 func updatePlayers():
 	var text = ""
+	for child in PlayersDisplay.get_children():
+		child.queue_free()
+		
 	for player_id  in MultiplayerRoom.players:
 		var player :MultiplayerRoomPlayer = MultiplayerRoom.players.get(player_id)
-		text += " %s : %s \n" % [player.id,player.playerName]
-	PlayersDisplay.text = text
+		var ticket = PlayerResource.instantiate()
+		var ticket_name: Label = ticket.get_child(1)
+		ticket_name.text = player.playerName
+		var ticket_room: Label = ticket.get_child(2)
+		ticket_room.text = MultiplayerRoom.room_code
+		PlayersDisplay.add_child(ticket)
+		#text += " %s : %s \n" % [player.id,player.playerName]
+	#PlayersDisplay.text = text
 
 
 func _on_start_game_pressed() -> void:

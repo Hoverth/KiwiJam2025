@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3r2rymk34urn"]
+
+[ext_resource type="Texture2D" uid="uid://o0np6f8iv1ek" path="res://Art/ClippedBoardingPass.png" id="1_jmlyd"]
+[ext_resource type="Theme" uid="uid://uj4isnoc1njp" path="res://Art/JoinMenuTheme.tres" id="2_w8gf8"]
+
+[node name="ClippedBoardingPass" type="Panel"]
+offset_right = 199.0
+offset_bottom = 222.0
+
+[node name="ClippedBoardingPass" type="Sprite2D" parent="."]
+position = Vector2(98, 110)
+scale = Vector2(0.172232, 0.172232)
+texture = ExtResource("1_jmlyd")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 43.0
+offset_right = 60.0
+offset_bottom = 66.0
+theme = ExtResource("2_w8gf8")
+text = "NAME"
+
+[node name="RoomLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 78.0
+offset_right = 59.0
+offset_bottom = 101.0
+theme = ExtResource("2_w8gf8")
+text = "NAME"
