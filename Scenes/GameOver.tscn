@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0flovio482sq"]
+[gd_scene load_steps=7 format=3 uid="uid://c0flovio482sq"]
 
+[ext_resource type="Texture2D" uid="uid://dotdsk2mtd1ey" path="res://Art/Sprite/WhitePixel.tres" id="1_k52d1"]
 [ext_resource type="Texture2D" uid="uid://n62e0svs3vh6" path="res://Art/BG/GameOver.png" id="1_m5628"]
+[ext_resource type="Script" uid="uid://bvie6o5o6js3m" path="res://Scripts/game_over.gd" id="1_rdiyk"]
+[ext_resource type="FontFile" uid="uid://bcoptoqkcnkns" path="res://Art/Font/comicbd.ttf" id="3_ktc4i"]
+[ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="4_uib17"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uib17"]
+font = ExtResource("3_ktc4i")
+font_size = 72
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,6 +17,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rdiyk")
+
+[node name="WhitePixel" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0.784314, 1, 0.623529)
+position = Vector2(6, 129)
+scale = Vector2(10000, 10000)
+texture = ExtResource("1_k52d1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(219, 279)
+amount = 100
+texture = ExtResource("1_k52d1")
+preprocess = 0.96
+randomness = 0.51
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, -200)
+initial_velocity_max = 1000.0
+angular_velocity_min = -588.92
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(211, 283)
+amount = 50
+texture = ExtResource("1_k52d1")
+preprocess = 0.96
+randomness = 0.51
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 1000.0
+angular_velocity_min = -588.92
+angular_velocity_max = 720.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+color = Color(1, 0.482353, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -19,3 +73,23 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_m5628")
 expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 762.0
+offset_top = 358.0
+offset_right = 1105.0
+offset_bottom = 459.0
+text = "Yuo Loose"
+label_settings = SubResource("LabelSettings_uib17")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 907.0
+offset_top = 497.0
+offset_right = 1102.0
+offset_bottom = 528.0
+theme = ExtResource("4_uib17")
+text = "Back To Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
