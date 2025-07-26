@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqyu6r7ksxtxr"]
+[gd_scene load_steps=5 format=3 uid="uid://cqyu6r7ksxtxr"]
 
 [ext_resource type="Script" uid="uid://cisdjqfhc7e2c" path="res://Scripts/joinMenu.gd" id="1_7be0v"]
+[ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
+[ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
+[ext_resource type="Theme" uid="uid://uj4isnoc1njp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
 
 [node name="JoinMenu" type="Control"]
 layout_mode = 3
@@ -33,14 +36,6 @@ offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name" type="LineEdit" parent="Panel/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Your Name"
-
-[node name="roomCode" type="LineEdit" parent="Panel/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Room Code"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 alignment = 1
@@ -55,7 +50,60 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Join"
 
-[connection signal="text_changed" from="Panel/VBoxContainer/name" to="." method="_on_name_text_changed"]
-[connection signal="text_changed" from="Panel/VBoxContainer/roomCode" to="." method="_on_room_code_text_changed"]
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_iwfl7")
+
+[node name="BoardingPass" type="Sprite2D" parent="Control"]
+position = Vector2(569, 269)
+scale = Vector2(0.20902, 0.20902)
+texture = ExtResource("2_4atuy")
+
+[node name="name" type="LineEdit" parent="Control"]
+layout_mode = 2
+offset_left = 190.0
+offset_top = 196.0
+offset_right = 392.0
+offset_bottom = 227.0
+theme = ExtResource("3_46tsd")
+placeholder_text = "Your Name"
+flat = true
+caret_blink = true
+caret_force_displayed = true
+
+[node name="roomCode" type="LineEdit" parent="Control"]
+layout_mode = 2
+offset_left = 181.0
+offset_top = 262.0
+offset_right = 285.0
+offset_bottom = 293.0
+theme = ExtResource("3_46tsd")
+placeholder_text = "Room Code"
+caret_blink = true
+caret_force_displayed = true
+
+[node name="roomLabel" type="Label" parent="Control"]
+offset_left = 776.0
+offset_top = 226.0
+offset_right = 816.0
+offset_bottom = 249.0
+theme = ExtResource("3_46tsd")
+text = "FLIGHT"
+
+[node name="nameLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 777.0
+offset_top = 192.0
+offset_right = 817.0
+offset_bottom = 215.0
+theme = ExtResource("3_46tsd")
+text = "Name"
+
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="text_changed" from="Control/name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="Control/name" to="Control" method="_on_name_text_changed"]
+[connection signal="text_changed" from="Control/roomCode" to="." method="_on_room_code_text_changed"]
+[connection signal="text_changed" from="Control/roomCode" to="Control" method="_on_room_code_text_changed"]
