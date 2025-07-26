@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=24 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b6m8ne0c2fu5s" path="res://Art/BG/OverweightLoadCapacity/Light.png" id="7_8rbhf"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
+[ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
@@ -204,6 +205,7 @@ text = "Camera"
 
 [node name="Clipboard" parent="." instance=ExtResource("13_8rbhf")]
 position = Vector2(1022, 648)
+content = ExtResource("14_thmgk")
 
 [node name="Label" parent="Clipboard/Clipboard" index="1"]
 text = "Flight
