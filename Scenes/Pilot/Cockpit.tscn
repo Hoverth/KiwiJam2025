@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=35 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -14,7 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
+[ext_resource type="AudioStream" uid="uid://cp6dmijpc0ppl" path="res://Audio/SoundEffects/Plane Noise.wav" id="15_jhn3y"]
 [ext_resource type="Script" uid="uid://ke8jntg0qlfs" path="res://Scripts/CaveSounds.gd" id="15_k633s"]
+[ext_resource type="AudioStream" uid="uid://b7vkg7srhoby4" path="res://Audio/SoundEffects/taping an american to a chair.wav" id="16_3fnkp"]
+[ext_resource type="AudioStream" uid="uid://2bxda4l1n6uc" path="res://Audio/SoundEffects/plane bing bong.wav" id="17_jhn3y"]
+[ext_resource type="AudioStream" uid="uid://rp6h8gisolpy" path="res://Audio/SoundEffects/metal piple falling.wav" id="18_rc7mj"]
+[ext_resource type="AudioStream" uid="uid://cgtrt2mkrr0bf" path="res://Audio/SoundEffects/cocomelon.wav" id="19_55tm8"]
+[ext_resource type="AudioStream" uid="uid://dat6ekecxk5iv" path="res://Audio/SoundEffects/Baby crying.wav" id="20_1f8je"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
@@ -282,8 +288,15 @@ content = ExtResource("14_thmgk")
 text = "Flight
 manifest"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jhn3y")
+volume_db = -20.0
+autoplay = true
+
 [node name="CaveSoundsPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("15_k633s")
+cave_sounds = Array[AudioStream]([ExtResource("16_3fnkp"), ExtResource("17_jhn3y"), ExtResource("18_rc7mj"), ExtResource("19_55tm8"), ExtResource("20_1f8je")])
+cave_sounds_wait_min = 15.0
 
 [node name="Timer" type="Timer" parent="CaveSoundsPlayer"]
 wait_time = 30.0

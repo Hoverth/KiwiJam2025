@@ -269,7 +269,7 @@ text = "Reset
 systems"
 label_settings = SubResource("LabelSettings_5vxii")
 
-[node name="Overlay" parent="Clipboard2" index="3"]
+[node name="Overlay" parent="Clipboard2" index="2"]
 position = Vector2(-224, -324)
 
 [editable path="Clipboard2"]
