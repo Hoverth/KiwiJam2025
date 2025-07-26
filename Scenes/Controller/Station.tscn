@@ -1,15 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://krd4cifms0xv"]
+[gd_scene load_steps=21 format=3 uid="uid://krd4cifms0xv"]
 
 [ext_resource type="Texture2D" uid="uid://d1qca4hgydf7p" path="res://Art/BG/ControllerStation.png" id="1_1dhem"]
 [ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="2_02phc"]
-[ext_resource type="Texture2D" uid="uid://wsok8f4uqw65" path="res://Art/Sprite/RadarContact.png" id="2_bok21"]
-[ext_resource type="Script" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
+[ext_resource type="Script" uid="uid://dylo3goi57crg" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
 [ext_resource type="Texture2D" uid="uid://rapd3dkeyjpw" path="res://Art/Sprite/DeathZone.png" id="2_xamlr"]
-[ext_resource type="Texture2D" uid="uid://cpfma8nj7c08b" path="res://Art/Sprite/RadarAlert.png" id="3_0ej5x"]
-[ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="4_5vxii"]
-[ext_resource type="Texture2D" uid="uid://c4b36kxusg8dg" path="res://Art/Sprite/Clipboard.png" id="5_0ej5x"]
-[ext_resource type="Script" path="res://Scripts/Clipboard.gd" id="5_5vxii"]
+[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="6_0ej5x"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="6_5vxii"]
+[ext_resource type="PackedScene" uid="uid://cm1ygqtmfwt3v" path="res://Scenes/Controller/TabletContent.tscn" id="7_02phc"]
+[ext_resource type="Texture2D" uid="uid://bv7x4v5jy04px" path="res://Art/BG/Tablet/SettingStateClosed/TabletStateClosed.png" id="7_5vxii"]
 
 [sub_resource type="Gradient" id="Gradient_02phc"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -121,61 +119,9 @@ generate_mipmaps = false
 normalize = false
 noise = SubResource("FastNoiseLite_1dhem")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02phc"]
-size = Vector2(307.871, 399.188)
-
-[sub_resource type="Animation" id="Animation_02phc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5vxii"]
-resource_name = "hover_on"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xamlr"]
-_data = {
-&"RESET": SubResource("Animation_02phc"),
-&"hover_on": SubResource("Animation_5vxii")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_xamlr"]
+[sub_resource type="LabelSettings" id="LabelSettings_5vxii"]
 font = ExtResource("6_5vxii")
 font_size = 28
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vxii"]
-size = Vector2(1183, 685)
-
-[sub_resource type="Gradient" id="Gradient_5vxii"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_02phc"]
-gradient = SubResource("Gradient_5vxii")
-width = 1
-height = 1
 
 [node name="Station" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -189,13 +135,16 @@ metadata/_edit_lock_ = true
 [node name="AltitudeMeter" type="Node2D" parent="."]
 position = Vector2(365, 305)
 script = ExtResource("2_fka5k")
+metadata/_edit_lock_ = true
 
 [node name="AltitudeUi" type="Sprite2D" parent="AltitudeMeter"]
 modulate = Color(0.163398, 0.163398, 0.163398, 1)
 scale = Vector2(685, 498)
 texture = SubResource("GradientTexture2D_xamlr")
+metadata/_edit_lock_ = true
 
 [node name="Doodads" type="Node2D" parent="AltitudeMeter"]
+metadata/_edit_lock_ = true
 
 [node name="DeathZone1" type="Node2D" parent="AltitudeMeter/Doodads"]
 position = Vector2(0, -186)
@@ -262,6 +211,7 @@ vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="PlaneMarker" type="Node2D" parent="AltitudeMeter/Doodads"]
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="AltitudeMeter/Doodads/PlaneMarker"]
 modulate = Color(0.164624, 0.964405, 0.454391, 1)
@@ -285,24 +235,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_02phc")
 metadata/_edit_lock_ = true
 
-[node name="Node2D" type="Node2D" parent="AltitudeMeter/Doodads"]
-position = Vector2(28, 93)
-
-[node name="RadarContact" type="Sprite2D" parent="."]
-position = Vector2(427, -103)
-scale = Vector2(0.322, 0.322)
-texture = ExtResource("2_bok21")
-
-[node name="RadarAlert" type="Sprite2D" parent="."]
-position = Vector2(662, -166)
-scale = Vector2(0.322, 0.322)
-texture = ExtResource("3_0ej5x")
-
-[node name="PageArrow" type="Sprite2D" parent="."]
-position = Vector2(1010, -160)
-scale = Vector2(0.322, 0.322)
-texture = ExtResource("4_5vxii")
-
 [node name="NoiseAnim" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_0ej5x")
@@ -317,74 +249,27 @@ texture = SubResource("NoiseTexture2D_bok21")
 offset = Vector2(288, 162)
 metadata/_edit_lock_ = true
 
-[node name="Clipboard" type="Area2D" parent="."]
-position = Vector2(1042, 658)
-script = ExtResource("5_5vxii")
+[node name="Clipboard2_Node2D#Clipboard" parent="." instance=ExtResource("6_0ej5x")]
+position = Vector2(1022, 648)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clipboard"]
-shape = SubResource("RectangleShape2D_02phc")
+[node name="Clipboard2" parent="." instance=ExtResource("6_0ej5x")]
+position = Vector2(800, 648)
+content = ExtResource("7_02phc")
 metadata/_edit_lock_ = true
 
-[node name="ClipboardButton" type="AnimationPlayer" parent="Clipboard"]
-root_node = NodePath("Clipboard")
-libraries = {
-&"": SubResource("AnimationLibrary_xamlr")
-}
+[node name="Clipboard" parent="Clipboard2/Clipboard" index="0"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_5vxii")
 
-[node name="Clipboard" type="Sprite2D" parent="Clipboard/ClipboardButton"]
-z_index = 1
-position = Vector2(1042, 658)
-texture = ExtResource("5_0ej5x")
-metadata/_edit_lock_ = true
+[node name="Label" parent="Clipboard2/Clipboard" index="1"]
+offset_top = -98.18
+offset_bottom = -15.1796
+text = "Reset
+systems"
+label_settings = SubResource("LabelSettings_5vxii")
 
-[node name="Label" type="Label" parent="Clipboard/ClipboardButton/Clipboard"]
-offset_left = -66.5315
-offset_top = -108.277
-offset_right = 68.4685
-offset_bottom = -25.2766
-text = "Passenger
-attributes"
-label_settings = SubResource("LabelSettings_xamlr")
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
+[node name="Overlay" parent="Clipboard2" index="3"]
+position = Vector2(-224, -324)
 
-[node name="Overlay" type="Area2D" parent="Clipboard"]
-visible = false
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clipboard/Overlay"]
-position = Vector2(-463.5, -332.5)
-shape = SubResource("RectangleShape2D_5vxii")
-metadata/_edit_lock_ = true
-
-[node name="Greyout" type="Sprite2D" parent="Clipboard/Overlay"]
-modulate = Color(0, 0, 0, 0.443137)
-position = Vector2(-462.504, -336)
-scale = Vector2(1157.01, 652)
-texture = SubResource("GradientTexture2D_02phc")
-metadata/_edit_lock_ = true
-
-[node name="Clipboard2" type="Sprite2D" parent="Clipboard/Overlay"]
-z_index = 1
-position = Vector2(-471, -339)
-scale = Vector2(2.00993, 2.00993)
-texture = ExtResource("5_0ej5x")
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="Clipboard/Overlay/Clipboard2"]
-offset_left = -66.4615
-offset_top = -56.3077
-offset_right = 68.5385
-offset_bottom = 69.6923
-text = "Blah blah
-blah blah
-blah"
-label_settings = SubResource("LabelSettings_xamlr")
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
-[connection signal="input_event" from="Clipboard" to="Clipboard" method="_on_input_event"]
-[connection signal="mouse_entered" from="Clipboard" to="Clipboard/ClipboardButton" method="play" binds= ["hover_on"]]
-[connection signal="mouse_exited" from="Clipboard" to="Clipboard/ClipboardButton" method="play_backwards" binds= ["hover_on"]]
-[connection signal="input_event" from="Clipboard/Overlay" to="Clipboard" method="_on_overlay_input_event"]
+[editable path="Clipboard2"]
