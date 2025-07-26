@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://drhp3lltalspc"]
+
+[ext_resource type="Script" uid="uid://c5sg7e2kuwwum" path="res://Scripts/Clipboard.gd" id="1_0ootc"]
+[ext_resource type="Texture2D" uid="uid://c4b36kxusg8dg" path="res://Art/Sprite/Clipboard.png" id="2_4iyx6"]
+[ext_resource type="PackedScene" uid="uid://dur1vojmdxhph" path="res://Scenes/Controller/ClipboardContent.tscn" id="2_j48r6"]
+[ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="3_j48r6"]
+
+[sub_resource type="Animation" id="Animation_4iyx6"]
+resource_name = "hover_on"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipboard:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_j48r6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipboard:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b4l78"]
+_data = {
+&"RESET": SubResource("Animation_j48r6"),
+&"hover_on": SubResource("Animation_4iyx6")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02phc"]
+size = Vector2(220, 300)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xamlr"]
+font = ExtResource("3_j48r6")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vxii"]
+size = Vector2(1152, 648)
+
+[sub_resource type="Gradient" id="Gradient_5vxii"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_02phc"]
+gradient = SubResource("Gradient_5vxii")
+width = 1
+height = 1
+
+[node name="Clipboard" type="Area2D"]
+script = ExtResource("1_0ootc")
+content = ExtResource("2_j48r6")
+metadata/_edit_group_ = true
+
+[node name="ClipboardButton" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b4l78")
+}
+autoplay = "RESET"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_02phc")
+metadata/_edit_lock_ = true
+
+[node name="Clipboard" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Clipboard" type="Sprite2D" parent="Clipboard"]
+texture = ExtResource("2_4iyx6")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Clipboard"]
+offset_left = -66.5315
+offset_top = -108.277
+offset_right = 68.4685
+offset_bottom = -25.2766
+text = "Passenger
+attributes"
+label_settings = SubResource("LabelSettings_xamlr")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Overlay" type="Area2D" parent="."]
+process_mode = 4
+visible = false
+z_index = 2
+position = Vector2(-446, -324)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overlay"]
+shape = SubResource("RectangleShape2D_5vxii")
+metadata/_edit_lock_ = true
+
+[node name="Greyout" type="Sprite2D" parent="Overlay"]
+modulate = Color(0, 0, 0, 0.443137)
+scale = Vector2(1152, 648)
+texture = SubResource("GradientTexture2D_02phc")
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="ClipboardButton" method="play" binds= ["hover_on"]]
+[connection signal="mouse_exited" from="." to="ClipboardButton" method="play_backwards" binds= ["hover_on"]]
+[connection signal="input_event" from="Overlay" to="." method="_on_overlay_input_event"]

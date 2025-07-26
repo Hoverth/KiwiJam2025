@@ -6,7 +6,6 @@ extends Node2D
 @export var altitude := 7000.0
 
 @export var max_altitude_y := -120.0
-
 @export var min_altitude_y := 120.0
 
 func _process(delta: float) -> void:
