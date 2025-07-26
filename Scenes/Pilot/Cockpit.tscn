@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=29 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
+[ext_resource type="Script" uid="uid://ke8jntg0qlfs" path="res://Scripts/CaveSounds.gd" id="15_k633s"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
@@ -281,6 +282,13 @@ content = ExtResource("14_thmgk")
 text = "Flight
 manifest"
 
+[node name="CaveSoundsPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("15_k633s")
+
+[node name="Timer" type="Timer" parent="CaveSoundsPlayer"]
+wait_time = 30.0
+autostart = true
+
 [connection signal="timeout" from="tilt_timer" to="." method="_on_tilt_timer_timeout"]
 [connection signal="pressed" from="EjectSeat/UpButton" to="EjectSeat" method="_on_up_button_pressed"]
 [connection signal="pressed" from="EjectSeat/DownButton" to="EjectSeat" method="_on_down_button_pressed"]
@@ -288,5 +296,6 @@ manifest"
 [connection signal="mouse_entered" from="Camera Button/Button" to="Camera Button" method="_on_button_mouse_entered"]
 [connection signal="overlay_hidden" from="Clipboard" to="Camera Button" method="clipboard_hidden"]
 [connection signal="overlay_shown" from="Clipboard" to="Camera Button" method="clipboard_shown"]
+[connection signal="timeout" from="CaveSoundsPlayer/Timer" to="CaveSoundsPlayer" method="_on_timer_timeout"]
 
 [editable path="Clipboard"]
