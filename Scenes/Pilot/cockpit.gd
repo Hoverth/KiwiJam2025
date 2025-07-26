@@ -19,8 +19,6 @@ func _process(delta):
 		tilt_angle = 0
 	else: 
 		current_altitude += (tilt_angle * tilt_direction)
-	
-	print(current_altitude)
 
 func _on_tilt_timer_timeout() -> void:
 	tilt_angle += 10
