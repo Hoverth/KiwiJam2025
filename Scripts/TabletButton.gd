@@ -7,12 +7,14 @@ extends ColorRect
 @export var loss_speed := -0.1
 @export var done_color: Color = Color.PALE_GREEN
 @onready var original_color: Color = $ProgressRect.color
-
+@export var cameraNum : int
 var holding := false
 
 signal done
 
 func reset() -> void:
+	var gameManager :Game = get_tree().root.get_node("Game")
+	gameManager.fixCamera(cameraNum)
 	$ProgressRect.color = original_color
 	progress = 0.0
 

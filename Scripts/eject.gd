@@ -37,9 +37,6 @@ func reset(wait_first: bool = true) -> void:
 	print(color_mapping.get(target_seat))
 	target_code.assign(color_mapping.get(target_seat))
 
-func _ready() -> void:
-	reset()
-
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation:
 		for c in target_code:

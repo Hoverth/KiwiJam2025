@@ -72,6 +72,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.888085, 0.944247, 0.879725, 1)
 script = ExtResource("3_0caky")
+cameraNum = 2
 metadata/_edit_group_ = true
 
 [node name="ProgressRect" type="ColorRect" parent="TabletButton2"]
@@ -116,6 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.888085, 0.944247, 0.879725, 1)
 script = ExtResource("3_0caky")
+cameraNum = 3
 metadata/_edit_group_ = true
 
 [node name="ProgressRect" type="ColorRect" parent="TabletButton3"]
@@ -160,6 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.888085, 0.944247, 0.879725, 1)
 script = ExtResource("3_0caky")
+cameraNum = 1
 metadata/_edit_group_ = true
 
 [node name="ProgressRect" type="ColorRect" parent="TabletButton4"]
@@ -187,5 +190,5 @@ offset_top = -13.0
 offset_right = 106.373
 offset_bottom = 13.0
 grow_vertical = 2
-text = "Reset communications"
+text = "Reset Doors"
 label_settings = SubResource("LabelSettings_h41ji")

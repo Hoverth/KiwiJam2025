@@ -16,12 +16,25 @@ class_name Game
 @export var randomAltitudeChangeTime : int = 10
 @export var targetAltitude = 30 :
 	set = receivedNewAltitude
-	
-signal targetAltitudeChanged(newAltitude)
 
+
+@export var camera1Broken = false 
+@export var camera2Broken = false
+@export var camera3Broken = false
+@export var cameraDeathTime : int = 20
+
+@export var eventRunning = false
+@export var eventRenewTimer : int = 10
+var rng = RandomNumberGenerator.new()
+
+signal targetAltitudeChanged(newAltitude)
+signal cameraBroken(cameraNum)
+signal cameraFixed(cameraNum)
+signal lightEvent()
 func _ready() -> void:
 	# Spawn the seperate scenes and start timer coroutines
 	if(is_multiplayer_authority()):
+		rng.set_seed(Time.get_ticks_msec())
 		winTimer.one_shot = true
 		winTimer.timeout.connect(win)
 		winTimer.start(winTime)
@@ -31,6 +44,7 @@ func _ready() -> void:
 		targetAltitude = 30000
 		add_child(instance)
 		randomAltitudeChange()
+		eventCreator()
 	else:
 		var instance :Node = load("res://Scenes/Controller/Station.tscn").instantiate()
 		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
@@ -38,15 +52,15 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	
 	if !is_multiplayer_authority():
 		return
 	
 	percentageTimeRemaining = (1 - (winTimer.time_left/winTime)) * 100
-	if (not winTimer.is_stopped()):
-		print(winTimer.time_left)
-		print(percentageTimeRemaining)
-		
+	#if (not winTimer.is_stopped()):
+		#print(winTimer.time_left)
+		#print(percentageTimeRemaining)
+	
+	eventTimer()
 	if !gracePeriodActive:
 		if currentAltitude >= getMaxAltitude() || currentAltitude <= getMinAltitude():
 				gameOver()		
@@ -61,13 +75,78 @@ func gracePeriodTimer():
 func randomAltitudeChange():
 	await get_tree().create_timer(randomAltitudeChangeTime).timeout
 	gracePeriodTimer()
-	var rng = RandomNumberGenerator.new()
+	
 	if(rng.randi_range(0,1)):
 		currentAltitude += rng.randi_range(5000,10000)
 	else:
 		currentAltitude -= rng.randi_range(5000,10000)
 	randomAltitudeChange()
 
+func eventTimer():
+	var tempEventTime = eventRenewTimer
+	if(rng.randi_range(0,1)):
+		tempEventTime += rng.randi_range(0,5)
+	else:
+		tempEventTime -= rng.randi_range(0,5)
+	await get_tree().create_timer(tempEventTime).timeout  
+	eventCreator()
+
+func eventCreator():
+	if eventRunning:
+		return
+	var chance = rng.randf_range(0,1)
+	if(chance>0.33):
+		print("CAMERA BERAK")
+		cameraBreak()
+		pass
+	else:
+		print("Light Event")
+		lightEvent.emit()
+		pass
+	
+	eventRunning = true
+
+func cameraBreak():
+	var camera_num = randi_range(1,3)
+	print(camera_num)
+	match camera_num:
+		1:
+			camera1Broken = true
+		2: 
+			camera2Broken = true
+		3:
+			camera3Broken = true
+	cameraBroken.emit(camera_num)
+	startCameraTimer(camera_num)
+
+func startCameraTimer(camera_num):
+	await get_tree().create_timer(cameraDeathTime).timeout
+	match camera_num:
+		1:
+			if camera1Broken == true:
+				gameOver()
+		2: 
+			if camera2Broken == true:
+				gameOver()
+		3:
+			if camera3Broken == true:
+				gameOver()
+	
+func fixCamera(camera_num):
+	fixCameraRPC.rpc_id(MultiplayerRoom.host_id,camera_num)
+
+
+func fixCameraRPC(camera_num):
+	match camera_num:
+		1:
+			camera1Broken = false
+		2: 
+			camera2Broken = false
+		3:
+			camera3Broken = false
+	cameraFixed.emit(camera_num)
+	eventTimer()
+	
 func receivedNewAltitude(newAltitude):
 	targetAltitude = newAltitude # remember to set var to new value
 	targetAltitudeChanged.emit(targetAltitude)
