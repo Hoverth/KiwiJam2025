@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cisdjqfhc7e2c" path="res://Scripts/joinMenu.gd" id="1_7be0v"]
 [ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
-[ext_resource type="Script" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
+[ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
 
 [node name="JoinMenu" type="Control"]
@@ -70,16 +70,16 @@ offset_top = 196.0
 offset_right = 392.0
 offset_bottom = 227.0
 theme = ExtResource("3_46tsd")
-placeholder_text = "Your Name"
+placeholder_text = "Enter Name"
 flat = true
 caret_blink = true
 
 [node name="roomCode" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 192.6
-offset_top = 251.245
-offset_right = 296.6
-offset_bottom = 282.245
+offset_left = 202.771
+offset_top = 267.767
+offset_right = 306.771
+offset_bottom = 298.767
 theme = ExtResource("3_46tsd")
 placeholder_text = "Room Code"
 caret_blink = true
@@ -88,17 +88,19 @@ caret_blink = true
 layout_mode = 0
 offset_left = 776.0
 offset_top = 226.0
-offset_right = 816.0
+offset_right = 843.0
 offset_bottom = 249.0
 theme = ExtResource("3_46tsd")
+clip_text = true
 
 [node name="nameLabel" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 777.0
 offset_top = 192.0
-offset_right = 817.0
+offset_right = 917.0
 offset_bottom = 215.0
 theme = ExtResource("3_46tsd")
+clip_text = true
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Join" to="." method="_on_join_pressed"]
