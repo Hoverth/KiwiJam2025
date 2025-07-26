@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k6tjrtlq7g02" path="res://Scripts/lobby.gd" id="1_bpe3w"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="2_lolwk"]
-[ext_resource type="FontFile" uid="uid://dug3fx573p5ak" path="res://Art/Fonts/JetBrainsMono-Regular.ttf" id="3_wgubu"]
+[ext_resource type="FontFile" uid="uid://dug3fx573p5ak" path="res://Art/Font/JetBrainsMono-Regular.ttf" id="3_wgubu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nsj2m"]
 font = ExtResource("3_wgubu")

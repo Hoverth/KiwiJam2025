@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://crwxdq6rd27gp"]
 
-[ext_resource type="FontFile" uid="uid://dug3fx573p5ak" path="res://Art/Fonts/JetBrainsMono-Regular.ttf" id="1_3lksg"]
+[ext_resource type="FontFile" uid="uid://dug3fx573p5ak" path="res://Art/Font/JetBrainsMono-Regular.ttf" id="1_3lksg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lksg"]
 bg_color = Color(0.754703, 0.742997, 0.737237, 1)

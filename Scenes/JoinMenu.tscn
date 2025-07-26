@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cisdjqfhc7e2c" path="res://Scripts/joinMenu.gd" id="1_7be0v"]
 [ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
-[ext_resource type="Script" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
+[ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
 
 [node name="JoinMenu" type="Control"]
@@ -16,23 +16,21 @@ script = ExtResource("1_7be0v")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 505.0
-offset_right = 382.0
-offset_bottom = 623.0
+offset_left = 726.0
+offset_top = 451.0
+offset_right = 1083.0
+offset_bottom = 480.0
+theme = ExtResource("3_46tsd")
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -167.5
-offset_top = -50.0
-offset_right = 167.5
-offset_bottom = 51.0
+offset_top = -11.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -52,8 +50,12 @@ text = "Join"
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -214.0
+offset_top = -1.0
+offset_right = -174.0
+offset_bottom = 39.0
+rotation = -0.122908
+scale = Vector2(1.32012, 1.32012)
 script = ExtResource("2_iwfl7")
 
 [node name="BoardingPass" type="Sprite2D" parent="Control"]
@@ -71,18 +73,16 @@ theme = ExtResource("3_46tsd")
 placeholder_text = "Your Name"
 flat = true
 caret_blink = true
-caret_force_displayed = true
 
 [node name="roomCode" type="LineEdit" parent="Control"]
 layout_mode = 2
-offset_left = 181.0
-offset_top = 262.0
-offset_right = 285.0
-offset_bottom = 293.0
+offset_left = 192.6
+offset_top = 251.245
+offset_right = 296.6
+offset_bottom = 282.245
 theme = ExtResource("3_46tsd")
 placeholder_text = "Room Code"
 caret_blink = true
-caret_force_displayed = true
 
 [node name="roomLabel" type="Label" parent="Control"]
 layout_mode = 0
@@ -91,7 +91,6 @@ offset_top = 226.0
 offset_right = 816.0
 offset_bottom = 249.0
 theme = ExtResource("3_46tsd")
-text = "FLIGHT"
 
 [node name="nameLabel" type="Label" parent="Control"]
 layout_mode = 0
@@ -100,7 +99,6 @@ offset_top = 192.0
 offset_right = 817.0
 offset_bottom = 215.0
 theme = ExtResource("3_46tsd")
-text = "Name"
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Join" to="." method="_on_join_pressed"]
