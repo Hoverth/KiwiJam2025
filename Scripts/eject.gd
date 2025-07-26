@@ -29,13 +29,24 @@ var target_code: Array[String] = []
 
 @export var min_eject_challenge_delay := 20.0
 @export var max_eject_challenge_delay := 45.0
-
+@export var timeToDeath :int = 30
+var eventActive
 func reset(wait_first: bool = true) -> void:
 	if wait_first:
 		await get_tree().create_timer(randf_range(min_eject_challenge_delay, max_eject_challenge_delay)).timeout
+	startDeathTimer()
 	target_seat = seat_list.pick_random()
+	print(target_seat)
 	print(color_mapping.get(target_seat))
 	target_code.assign(color_mapping.get(target_seat))
+	eventActive = true
+
+func startDeathTimer():
+	await get_tree().create_timer(timeToDeath).timeout
+	if(eventActive):
+		var gameManager :Game = get_tree().root.get_node("Game")
+		print("Ran out of time on light minigame")
+		gameManager.gameOver()
 
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation:
@@ -58,8 +69,12 @@ func _on_eject_button_pressed() -> void:
 		print('ejected the target seat')
 		print(target_seat)
 		target_code = []
-		reset()
+		var gameManager :Game = get_tree().root.get_node("Game")
+		eventActive = false
+		gameManager.eventRunning = false
+		gameManager.eventTimer()
 	else:
 		print('ejected wrong seat')
-		print('TODO: punish the player for this somehow?')
+		var gameManager :Game = get_tree().root.get_node("Game")
+		gameManager.gameOver()
 		print(target_seat)

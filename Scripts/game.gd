@@ -43,7 +43,7 @@ func _ready() -> void:
 		currentAltitude = 30000
 		targetAltitude = 30000
 		add_child(instance)
-		randomAltitudeChange()
+		#randomAltitudeChange()
 		eventCreator()
 	else:
 		var instance :Node = load("res://Scenes/Controller/Station.tscn").instantiate()
@@ -60,9 +60,9 @@ func _process(delta: float) -> void:
 		#print(winTimer.time_left)
 		#print(percentageTimeRemaining)
 	
-	eventTimer()
 	if !gracePeriodActive:
 		if currentAltitude >= getMaxAltitude() || currentAltitude <= getMinAltitude():
+				print("Out of altitude range for too long")
 				gameOver()		
 
 func gracePeriodTimer():
@@ -77,9 +77,9 @@ func randomAltitudeChange():
 	gracePeriodTimer()
 	
 	if(rng.randi_range(0,1)):
-		currentAltitude += rng.randi_range(5000,10000)
+		currentAltitude += rng.randi_range(2000,5000)
 	else:
-		currentAltitude -= rng.randi_range(5000,10000)
+		currentAltitude -= rng.randi_range(2000,5000)
 	randomAltitudeChange()
 
 func eventTimer():
@@ -88,12 +88,12 @@ func eventTimer():
 		tempEventTime += rng.randi_range(0,5)
 	else:
 		tempEventTime -= rng.randi_range(0,5)
+	print(tempEventTime)
 	await get_tree().create_timer(tempEventTime).timeout  
+	print("Event Creating")
 	eventCreator()
 
 func eventCreator():
-	if eventRunning:
-		return
 	var chance = rng.randf_range(0,1)
 	if(chance>0.33):
 		print("CAMERA BERAK")
@@ -121,6 +121,7 @@ func cameraBreak():
 
 func startCameraTimer(camera_num):
 	await get_tree().create_timer(cameraDeathTime).timeout
+	print("Camera Not fixed in time")
 	match camera_num:
 		1:
 			if camera1Broken == true:
@@ -133,9 +134,9 @@ func startCameraTimer(camera_num):
 				gameOver()
 	
 func fixCamera(camera_num):
-	fixCameraRPC.rpc_id(MultiplayerRoom.host_id,camera_num)
+	fixCameraRPC.rpc_id(int(MultiplayerRoom.host_id),camera_num)
 
-
+@rpc("any_peer","call_local","reliable")
 func fixCameraRPC(camera_num):
 	match camera_num:
 		1:
@@ -144,6 +145,8 @@ func fixCameraRPC(camera_num):
 			camera2Broken = false
 		3:
 			camera3Broken = false
+	print("CAMERA FIXED")
+	print(camera_num)
 	cameraFixed.emit(camera_num)
 	eventTimer()
 	
@@ -184,5 +187,5 @@ func gameOver():
 	MultiplayerSync.change_scene("res://Scenes/GameOver.tscn")
 
 func win():
-	print("YOU WON THE GAME")
+	MultiplayerSync.change_scene("res://Scenes/Win.tscn")
 	
