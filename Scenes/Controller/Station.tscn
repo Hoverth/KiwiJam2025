@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://d1qca4hgydf7p" path="res://Art/BG/ControllerStation.png" id="1_1dhem"]
 [ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="2_02phc"]
-[ext_resource type="Script" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
+[ext_resource type="Script" uid="uid://dylo3goi57crg" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
 [ext_resource type="Texture2D" uid="uid://rapd3dkeyjpw" path="res://Art/Sprite/DeathZone.png" id="2_xamlr"]
-[ext_resource type="PackedScene" path="res://Scenes/Controller/Clipboard.tscn" id="6_0ej5x"]
+[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="6_0ej5x"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="6_5vxii"]
-[ext_resource type="PackedScene" path="res://Scenes/Controller/TabletContent.tscn" id="7_02phc"]
+[ext_resource type="PackedScene" uid="uid://cm1ygqtmfwt3v" path="res://Scenes/Controller/TabletContent.tscn" id="7_02phc"]
 [ext_resource type="Texture2D" uid="uid://bv7x4v5jy04px" path="res://Art/BG/Tablet/SettingStateClosed/TabletStateClosed.png" id="7_5vxii"]
 
 [sub_resource type="Gradient" id="Gradient_02phc"]
@@ -124,6 +124,7 @@ font = ExtResource("6_5vxii")
 font_size = 28
 
 [node name="Station" type="Node2D"]
+script = ExtResource("2_fka5k")
 metadata/_edit_lock_ = true
 
 [node name="ControllerStation" type="Sprite2D" parent="."]
@@ -134,7 +135,6 @@ metadata/_edit_lock_ = true
 
 [node name="AltitudeMeter" type="Node2D" parent="."]
 position = Vector2(365, 305)
-script = ExtResource("2_fka5k")
 metadata/_edit_lock_ = true
 
 [node name="AltitudeUi" type="Sprite2D" parent="AltitudeMeter"]
