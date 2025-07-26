@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dur1vojmdxhph"]
+[gd_scene load_steps=4 format=3 uid="uid://cs5ikpa6el7c3"]
 
-[ext_resource type="Script" uid="uid://bm6vh1cstb28l" path="res://Scripts/ClipboardPageflip.gd" id="1_ask8o"]
-[ext_resource type="Texture2D" uid="uid://be7s0h1hdm8gv" path="res://Art/BG/PassengerLists/PassengerListATCView.png" id="2_ask8o"]
-[ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="3_tbt5a"]
+[ext_resource type="Script" uid="uid://bm6vh1cstb28l" path="res://Scripts/ClipboardPageflip.gd" id="1_i41by"]
+[ext_resource type="Texture2D" uid="uid://d1fx1q4cq0l7a" path="res://Art/BG/PassengerLists/PassengerListPilotView.png" id="2_2pc72"]
+[ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="3_2pc72"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ask8o")
-images = Array[Texture2D]([ExtResource("2_ask8o")])
+script = ExtResource("1_i41by")
+images = Array[Texture2D]([ExtResource("2_2pc72")])
 metadata/_edit_lock_ = true
 
 [node name="Image" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_ask8o")
+texture = ExtResource("2_2pc72")
 metadata/_edit_lock_ = true
 
 [node name="Right" type="Button" parent="."]
@@ -31,7 +31,7 @@ grow_vertical = 2
 texture_filter = 1
 position = Vector2(51, 42)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_tbt5a")
+texture = ExtResource("3_2pc72")
 
 [node name="Left" type="Button" parent="."]
 anchors_preset = 8
@@ -50,7 +50,7 @@ grow_vertical = 2
 texture_filter = 1
 position = Vector2(51, 42)
 scale = Vector2(-0.5, 0.5)
-texture = ExtResource("3_tbt5a")
+texture = ExtResource("3_2pc72")
 
 [connection signal="pressed" from="Right" to="." method="right"]
 [connection signal="pressed" from="Left" to="." method="left"]

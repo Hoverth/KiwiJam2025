@@ -9,10 +9,10 @@ extends Node2D
 @export var min_altitude_y := 120.0
 
 func _process(delta: float) -> void:
-	$Doodads/DeathZone1/Label.text = "%d ft" % round(max_altitude)
-	$Doodads/DeathZone2/Label.text = "%d ft" % round(min_altitude)
-	$Doodads/PlaneMarker/Label.text = "%d ft" % round(altitude)
+	$AltitudeMeter/Doodads/DeathZone1/Label.text = "%d ft" % round(max_altitude)
+	$AltitudeMeter/Doodads/DeathZone2/Label.text = "%d ft" % round(min_altitude)
+	$AltitudeMeter/Doodads/PlaneMarker/Label.text = "%d ft" % round(altitude)
 
 	var altitude_ratio := (altitude - min_altitude) / (max_altitude - min_altitude)
 
-	$Doodads/PlaneMarker.position.y = lerp(min_altitude_y, max_altitude_y, altitude_ratio)
+	$AltitudeMeter/Doodads/PlaneMarker.position.y = lerp(min_altitude_y, max_altitude_y, altitude_ratio)

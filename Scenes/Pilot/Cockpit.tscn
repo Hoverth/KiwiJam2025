@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=24 format=3 uid="uid://bpdah7buo6lwv"]
 
-[ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
+[ext_resource type="Script" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
 [ext_resource type="Texture2D" uid="uid://yelp0mv58nhl" path="res://Art/BG/Cockpit.png" id="2_d8nln"]
-[ext_resource type="Script" uid="uid://b3amjhaexnayc" path="res://Scripts/eject.gd" id="4_e14br"]
+[ext_resource type="Script" path="res://Scripts/eject.gd" id="4_e14br"]
 [ext_resource type="Texture2D" uid="uid://bumi4p0sioj5p" path="res://Art/BG/Eject/EjectUi.png" id="5_2ikyy"]
 [ext_resource type="Script" uid="uid://df21jlj66kk10" path="res://Scripts/camera_button.gd" id="5_7qtd6"]
 [ext_resource type="PackedScene" uid="uid://byj5pr0p1qy3n" path="res://Scenes/Pilot/camera.tscn" id="5_w6ady"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://m5cxxvbqoge2" path="res://Art/BG/Eject/DownButton.png" id="7_1kq3k"]
 [ext_resource type="Texture2D" uid="uid://b6m8ne0c2fu5s" path="res://Art/BG/OverweightLoadCapacity/Light.png" id="7_8rbhf"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
+[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
+[ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
@@ -33,21 +35,6 @@ scale_min = 2.0
 scale_max = 4.0
 color = Color(0.689383, 0.689383, 0.689383, 0.180392)
 
-[sub_resource type="Animation" id="Animation_1kq3k"]
-resource_name = "flash"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.52, 0.98),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.461862, 1.05888e-06, 2.64719e-07, 1), Color(0.961518, 4.45209e-06, 9.62615e-07, 1), Color(0.468327, 1.10099e-06, 1.68458e-07, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_8rbhf"]
 length = 0.001
 tracks/0/type = "value"
@@ -61,6 +48,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.461862, 1.05888e-06, 2.64719e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1kq3k"]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.52, 0.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.461862, 1.05888e-06, 2.64719e-07, 1), Color(0.961518, 4.45209e-06, 9.62615e-07, 1), Color(0.468327, 1.10099e-06, 1.68458e-07, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_thmgk"]
@@ -108,7 +110,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="EjectSeat" type="Node2D" parent="."]
-position = Vector2(884, 427)
+position = Vector2(796, 336)
 scale = Vector2(3, 3)
 script = ExtResource("4_e14br")
 
@@ -187,6 +189,7 @@ texture = ExtResource("8_8rbhf")
 
 [node name="Camera" parent="." instance=ExtResource("5_w6ady")]
 visible = false
+z_index = 2
 
 [node name="Camera Button" type="Node2D" parent="."]
 position = Vector2(453, 552)
@@ -200,8 +203,18 @@ offset_right = 130.0
 offset_bottom = 31.0
 text = "Camera"
 
+[node name="Clipboard" parent="." instance=ExtResource("13_8rbhf")]
+position = Vector2(1022, 648)
+content = ExtResource("14_thmgk")
+
+[node name="Label" parent="Clipboard/Clipboard" index="1"]
+text = "Flight
+manifest"
+
 [connection signal="timeout" from="tilt_timer" to="." method="_on_tilt_timer_timeout"]
 [connection signal="pressed" from="EjectSeat/UpButton" to="EjectSeat" method="_on_up_button_pressed"]
 [connection signal="pressed" from="EjectSeat/DownButton" to="EjectSeat" method="_on_down_button_pressed"]
 [connection signal="pressed" from="EjectSeat/EjectButton" to="EjectSeat" method="_on_eject_button_pressed"]
 [connection signal="mouse_entered" from="Camera Button/Button" to="Camera Button" method="_on_button_mouse_entered"]
+
+[editable path="Clipboard"]

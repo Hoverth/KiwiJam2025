@@ -28,6 +28,8 @@ func clear_any_overlay_on() -> void:
 	any_overlay_on = false
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if not visible:
+		return
 	if event.is_pressed() and not overlay_on and not any_overlay_on:
 		on_overlay_click()
 
