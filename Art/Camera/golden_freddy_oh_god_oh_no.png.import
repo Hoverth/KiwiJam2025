@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhk72eiw7ydr"
-path="res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"
+uid="uid://k4prrxssiri"
+path="res://.godot/imported/golden_freddy_oh_god_oh_no.png-0d78a9f70b17e664d8d13ba41a38c6b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BG/Eject/GreenSignal.png"
-dest_files=["res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"]
+source_file="res://Art/Camera/golden_freddy_oh_god_oh_no.png"
+dest_files=["res://.godot/imported/golden_freddy_oh_god_oh_no.png-0d78a9f70b17e664d8d13ba41a38c6b0.ctex"]
 
 [params]
 

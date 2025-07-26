@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhk72eiw7ydr"
-path="res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"
+uid="uid://ddg2l7tc3ktom"
+path="res://.godot/imported/Win.png-977975d01ff48a78a0959f89bfc4d312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BG/Eject/GreenSignal.png"
-dest_files=["res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"]
+source_file="res://Art/BG/Win.png"
+dest_files=["res://.godot/imported/Win.png-977975d01ff48a78a0959f89bfc4d312.ctex"]
 
 [params]
 

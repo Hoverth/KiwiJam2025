@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhk72eiw7ydr"
-path="res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"
+uid="uid://bp2hp57tc8aen"
+path="res://.godot/imported/happy_people_on_plane_px.png-9ec7b12bd5297c1f493b8af6898c4e18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BG/Eject/GreenSignal.png"
-dest_files=["res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"]
+source_file="res://Art/Camera/happy_people_on_plane_px.png"
+dest_files=["res://.godot/imported/happy_people_on_plane_px.png-9ec7b12bd5297c1f493b8af6898c4e18.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhk72eiw7ydr"
-path="res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"
+uid="uid://b8aqr303wqtxj"
+path="res://.godot/imported/shocked_people_on_plane_px.png-b10cbcba5f44e69c2937d4809026c8e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/BG/Eject/GreenSignal.png"
-dest_files=["res://.godot/imported/GreenSignal.png-67db1fd27dcfff550ee8aae249eb6993.ctex"]
+source_file="res://Art/Camera/shocked_people_on_plane_px.png"
+dest_files=["res://.godot/imported/shocked_people_on_plane_px.png-b10cbcba5f44e69c2937d4809026c8e1.ctex"]
 
 [params]
 
