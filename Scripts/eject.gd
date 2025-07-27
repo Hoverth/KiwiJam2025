@@ -11,6 +11,19 @@ var seat_list := [
 	'E1',
 	'Q2'
 ]
+
+var passenger_list := [
+	'Ronald Sump',
+	'Boe Jiden',
+	'Joey JoJo Junior Shabadoo',
+	'Big Dave',
+	'Lim Knee',
+	'Keight Cheggers Chegwin',
+	'Gary',
+	'Abhijit Naskar',
+	'Bob Ross'
+]
+
 var color_mapping := {
 	'A1': ['b', 'b', 'b'],
 	'A2': ['b', 'b', 'r'],
@@ -50,9 +63,8 @@ func startDeathTimer():
 func _on_eject_death_timer_timeout() -> void:
 	if(eventActive):
 		var gameManager :Game = get_tree().root.get_node("Game")
-
-		gameManager.gameOver("Did not eject person on time")
-	pass # Replace with function body.
+		gameManager.gameOver("The pilot did not eject the right person on time.")
+	pass
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation:
 		for c in target_code:
@@ -80,6 +92,14 @@ func _on_eject_button_pressed() -> void:
 		gameManager.eventTimer()
 		$EjectDeathTimer.stop()
 	else:
+		
+		var person : String = passenger_list[seat_index]
+		
+		var fine : int = randi_range(300,950)
+		
 		var gameManager :Game = get_tree().root.get_node("Game")
-		gameManager.gameOver("Got sued by the New Zealand Government for ejecting someone incorrectly")
+		
+		var format = "You have gotten sued by the family of %s for \n wrongful ejection.\n\n\nYou have also been fined %d million dollars by the NZ Civil & Aviation Authority."
+		
+		gameManager.gameOver(format % [person,fine])
 		print(target_seat)

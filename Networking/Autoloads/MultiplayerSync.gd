@@ -82,8 +82,8 @@ func spawn(file_path,parent_path,authority):
 
 @rpc("any_peer","call_remote","reliable")
 func spawn_rpc(file_path,parent_path,authority,object_name):
-	var load = load(file_path)
-	var object :Node2D= load.instantiate();
+	var to_load = load(file_path)
+	var object :Node2D= to_load.instantiate();
 	var parent = get_node(parent_path)
 	object.name = object_name
 	object.set_multiplayer_authority(multiplayer.get_remote_sender_id());

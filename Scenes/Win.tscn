@@ -57,6 +57,7 @@ offset_top = 67.0
 offset_right = 1087.0
 offset_bottom = 98.0
 theme = ExtResource("5_7mdni")
+disabled = true
 text = "Back To Main Menu"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
