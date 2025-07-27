@@ -136,7 +136,7 @@ func startCameraTimer(camera_num):
 func fixCamera(camera_num):
 	fixCameraRPC.rpc_id(int(MultiplayerRoom.host_id),camera_num)
 
-@rpc("any_peer","call_local","reliable")
+@rpc("any_peer","call_remote","reliable")
 func fixCameraRPC(camera_num):
 	match camera_num:
 		1:
