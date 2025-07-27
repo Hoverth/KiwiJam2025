@@ -1,5 +1,8 @@
 extends Node2D
 
+signal camera_broken
+signal camera_fixed
+
 var target_altitude: int
 
 @export var gracePeriodTime : int = 5
@@ -35,6 +38,7 @@ func cameraFixed(camera_num):
 			$Camera.cam2_broke = false
 		3:
 			$Camera.cam3_broke = false
+	camera_fixed.emit()
 
 func cameraBroken(camera_num):
 	match camera_num:
@@ -44,6 +48,7 @@ func cameraBroken(camera_num):
 			$Camera.cam2_broke = true
 		3:
 			$Camera.cam3_broke = true
+	camera_broken.emit(camera_num)
 func _process(delta):
 	if GameManager.gracePeriodActive:
 		# Warning Lights and Stuff

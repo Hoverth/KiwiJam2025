@@ -319,6 +319,8 @@ cave_sounds_wait_min = 15.0
 wait_time = 30.0
 autostart = true
 
+[connection signal="camera_broken" from="." to="Camera" method="_on_node_2d_camera_broken"]
+[connection signal="camera_fixed" from="." to="Camera" method="_on_node_2d_camera_fixed"]
 [connection signal="timeout" from="tilt_timer" to="." method="_on_tilt_timer_timeout"]
 [connection signal="timeout" from="start_timer" to="." method="_on_start_timer_timeout"]
 [connection signal="pressed" from="EjectSeat/UpButton" to="EjectSeat" method="_on_up_button_pressed"]
