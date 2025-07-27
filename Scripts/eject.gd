@@ -50,8 +50,8 @@ func startDeathTimer():
 func _on_eject_death_timer_timeout() -> void:
 	if(eventActive):
 		var gameManager :Game = get_tree().root.get_node("Game")
-		print("Ran out of time on light minigame")
-		gameManager.gameOver()
+
+		gameManager.gameOver("Did not eject person on time")
 	pass # Replace with function body.
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation:
@@ -80,7 +80,6 @@ func _on_eject_button_pressed() -> void:
 		gameManager.eventTimer()
 		$EjectDeathTimer.stop()
 	else:
-		print('ejected wrong seat')
 		var gameManager :Game = get_tree().root.get_node("Game")
-		gameManager.gameOver()
+		gameManager.gameOver("Got sued by the New Zealand Government for ejecting someone incorrectly")
 		print(target_seat)

@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0flovio482sq"]
+[gd_scene load_steps=9 format=3 uid="uid://c0flovio482sq"]
 
 [ext_resource type="Texture2D" uid="uid://dotdsk2mtd1ey" path="res://Art/Sprite/WhitePixel.tres" id="1_k52d1"]
 [ext_resource type="Texture2D" uid="uid://n62e0svs3vh6" path="res://Art/BG/GameOver.png" id="1_m5628"]
 [ext_resource type="Script" uid="uid://bvie6o5o6js3m" path="res://Scripts/game_over.gd" id="1_rdiyk"]
 [ext_resource type="FontFile" uid="uid://bcoptoqkcnkns" path="res://Art/Font/comicbd.ttf" id="3_ktc4i"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="4_uib17"]
+[ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="5_bfgkh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uib17"]
 font = ExtResource("3_ktc4i")
 font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mu6e"]
+font = ExtResource("5_bfgkh")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -80,6 +84,16 @@ offset_right = 1105.0
 offset_bottom = 459.0
 text = "Yuo Loose"
 label_settings = SubResource("LabelSettings_uib17")
+
+[node name="ReasonLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 466.0
+offset_right = 1106.0
+offset_bottom = 489.0
+text = "Hdhw"
+label_settings = SubResource("LabelSettings_5mu6e")
+horizontal_alignment = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
