@@ -40,6 +40,7 @@ var target_seat: String
 var target_code: Array[String] = []
 @onready var seat_label = $SeatLabel
 @onready var overweight_alert = $"../Overweight Alert"
+@onready var flush = $"../Flush Sound"
 
 @export var min_eject_challenge_delay := 20.0
 @export var max_eject_challenge_delay := 45.0
@@ -94,6 +95,7 @@ func _on_eject_button_pressed() -> void:
 		gameManager.eventTimer()
 		$EjectDeathTimer.stop()
 		overweight_alert.stop()
+		flush.play()
 	else:
 		
 		var person : String = passenger_list[seat_index]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=39 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cgtrt2mkrr0bf" path="res://Audio/SoundEffects/cocomelon.wav" id="19_55tm8"]
 [ext_resource type="AudioStream" uid="uid://dat6ekecxk5iv" path="res://Audio/SoundEffects/Baby crying.wav" id="20_1f8je"]
 [ext_resource type="AudioStream" uid="uid://wrjo0tvdtkk6" path="res://Audio/SoundEffects/Beep.wav" id="21_jhn3y"]
+[ext_resource type="AudioStream" uid="uid://cbpoiy08oe401" path="res://Audio/SoundEffects/flsuh.wav" id="22_rc7mj"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
@@ -197,7 +198,7 @@ metadata/_edit_lock_ = true
 wait_time = 5.0
 
 [node name="start_timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 25.0
 autostart = true
 
 [node name="EjectSeat" type="Node2D" parent="."]
@@ -332,6 +333,9 @@ autostart = true
 
 [node name="Overweight Alert" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_jhn3y")
+
+[node name="Flush Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_rc7mj")
 
 [connection signal="camera_broken" from="." to="Camera" method="_on_node_2d_camera_broken"]
 [connection signal="camera_fixed" from="." to="Camera" method="_on_node_2d_camera_fixed"]
