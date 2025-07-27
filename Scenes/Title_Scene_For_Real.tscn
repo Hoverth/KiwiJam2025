@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://7c2g6rflmmpf" path="res://Art/TitleScreen/thuliferous_no_presentt.png" id="3_7b8ti"]
 [ext_resource type="Script" uid="uid://c1c1m6b5vfgf2" path="res://Art/TitleScreen/WobbleShit.gd" id="5_7b8ti"]
 [ext_resource type="Texture2D" uid="uid://dyvt4d1wahbnu" path="res://Art/TitleScreen/`Text.png" id="6_6gr02"]
-[ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="6_bq44u"]
-[ext_resource type="Texture2D" uid="uid://c1krjbfdfbil4" path="res://Art/TitleScreen/Backing.png" id="7_n034i"]
+[ext_resource type="Texture2D" uid="uid://n62e0svs3vh6" path="res://Art/BG/GameOver.png" id="8_4o8ek"]
+[ext_resource type="Texture2D" uid="uid://2orfc2h3i8g6" path="res://Art/Sprite/PlaneIconRot.png" id="9_4o8ek"]
 [ext_resource type="AudioStream" uid="uid://2yv7b4xkx8if" path="res://Audio/Music/Looping Phones.wav" id="9_n034i"]
 
 [sub_resource type="Gradient" id="Gradient_ux2t2"]
@@ -67,6 +67,7 @@ gravity = Vector3(0, 500, 0)
 scale_max = 3.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j6858"]
+particle_flag_align_y = true
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
 spread = 180.0
@@ -109,7 +110,7 @@ script = ExtResource("5_7b8ti")
 [node name="Title" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Title"]
-z_index = -6
+z_index = -10
 scale = Vector2(32, 32)
 texture = SubResource("GradientTexture2D_sh6v1")
 
@@ -143,14 +144,14 @@ texture = ExtResource("6_6gr02")
 
 [node name="LandordTitlteBackground" type="Sprite2D" parent="Title"]
 z_index = -4
-position = Vector2(-4, 4.00004)
+position = Vector2(200, 4)
 scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("7_n034i")
+texture = ExtResource("8_4o8ek")
 
 [node name="LandlordParticles" type="GPUParticles2D" parent="Title"]
-z_index = -1
+z_index = -5
 amount = 10
-texture = ExtResource("6_bq44u")
+texture = ExtResource("9_4o8ek")
 lifetime = 5.0
 preprocess = 5.0
 process_material = SubResource("ParticleProcessMaterial_j6858")

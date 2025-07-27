@@ -1,4 +1,5 @@
 extends Area2D
+class_name Clipboard
 
 var overlay_on := false
 

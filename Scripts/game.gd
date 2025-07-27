@@ -32,6 +32,9 @@ signal cameraBroken(cameraNum)
 signal cameraFixed(cameraNum)
 signal lightEvent()
 func _ready() -> void:
+	# fix static variable persisting across sessions
+	# (sorry, I know this is a hack!)
+	Clipboard.any_overlay_on = false
 	# Spawn the seperate scenes and start timer coroutines
 	if(is_multiplayer_authority()):
 		rng.set_seed(Time.get_ticks_msec())
