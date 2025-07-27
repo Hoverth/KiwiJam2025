@@ -17,8 +17,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if get_rect().has_point(to_local(event.position)):
 			var point_vec: Vector2 = event.position - $PlayerPlane.global_position
-			var rot := atan2(point_vec.y, point_vec.x)
-			print(rot)
+			var rot := atan2(point_vec.x, -point_vec.y)
 			$PlayerPlane/Sprite2D.rotation = rot
 
 func _on_timer_timeout() -> void:

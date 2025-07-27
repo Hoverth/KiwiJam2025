@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://o5yauraqxleg"]
+[gd_scene load_steps=14 format=3 uid="uid://o5yauraqxleg"]
 
 [ext_resource type="Texture2D" uid="uid://b4fuuf0vii1oq" path="res://Art/BG/Birdstrike/mask.png" id="1_7p52l"]
 [ext_resource type="Script" uid="uid://bkl4mukth6rg2" path="res://Scripts/BirdStrikeGame.gd" id="2_je0e4"]
 [ext_resource type="Texture2D" uid="uid://dl6kb0fuaupwg" path="res://Art/radar.png" id="3_7p52l"]
 [ext_resource type="Texture2D" uid="uid://dltmv8in5xjdp" path="res://Art/BG/Camera/PlaneCamIcon.png" id="4_d1oqs"]
+[ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="5_je0e4"]
 
 [sub_resource type="Animation" id="Animation_73tnh"]
 length = 0.001
@@ -84,6 +85,10 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_je0e4"]
 radius = 24.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_pwpsi"]
+font = ExtResource("5_je0e4")
+font_color = Color(0, 0.683593, 0.382443, 1)
+
 [node name="BirdStrikeGame" type="Sprite2D"]
 clip_children = 1
 texture = ExtResource("1_7p52l")
@@ -133,6 +138,15 @@ metadata/_edit_lock_ = true
 wait_time = 30.0
 one_shot = true
 autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -82.0
+offset_top = -225.0
+offset_right = 84.344
+offset_bottom = -202.0
+text = "BIRD STRIKE RADAR"
+label_settings = SubResource("LabelSettings_pwpsi")
+horizontal_alignment = 1
 
 [connection signal="area_entered" from="PlayerPlane" to="." method="_on_player_plane_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
