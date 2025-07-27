@@ -5,4 +5,6 @@ func _on_name_text_changed(new_text: String) -> void:
 
 
 func _on_room_code_text_changed(new_text: String) -> void:
-	$roomLabel.text = new_text
+	$roomCode.text = new_text.to_upper()
+	$roomCode.caret_column = len(new_text)
+	$roomLabel.text = new_text.to_upper()
