@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bpdah7buo6lwv"]
+[gd_scene load_steps=38 format=3 uid="uid://bpdah7buo6lwv"]
 
 [ext_resource type="Script" uid="uid://dt3sbdvciar6t" path="res://Scenes/Pilot/cockpit.gd" id="1_d8nln"]
 [ext_resource type="Texture2D" uid="uid://dwx7sin76krms" path="res://Art/Sprite/dot.tres" id="1_oinbx"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b6m8ne0c2fu5s" path="res://Art/BG/OverweightLoadCapacity/Light.png" id="7_8rbhf"]
 [ext_resource type="Texture2D" uid="uid://c2m3aw06ftmwq" path="res://Art/BG/Eject/EjectButton.png" id="8_8rbhf"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="9_rc7mj"]
-[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
+[ext_resource type="PackedScene" path="res://Scenes/Controller/Clipboard.tscn" id="13_8rbhf"]
 [ext_resource type="PackedScene" uid="uid://cs5ikpa6el7c3" path="res://Scenes/Controller/PilotClipboardContent.tscn" id="14_thmgk"]
 [ext_resource type="AudioStream" uid="uid://cp6dmijpc0ppl" path="res://Audio/SoundEffects/Plane Noise.wav" id="15_jhn3y"]
 [ext_resource type="Script" path="res://Scripts/CaveSounds.gd" id="15_k633s"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://rp6h8gisolpy" path="res://Audio/SoundEffects/metal piple falling.wav" id="18_rc7mj"]
 [ext_resource type="AudioStream" uid="uid://cgtrt2mkrr0bf" path="res://Audio/SoundEffects/cocomelon.wav" id="19_55tm8"]
 [ext_resource type="AudioStream" uid="uid://dat6ekecxk5iv" path="res://Audio/SoundEffects/Baby crying.wav" id="20_1f8je"]
+[ext_resource type="AudioStream" uid="uid://wrjo0tvdtkk6" path="res://Audio/SoundEffects/Beep.wav" id="21_jhn3y"]
 
 [sub_resource type="Gradient" id="Gradient_37r7p"]
 offsets = PackedFloat32Array(0.0885248, 0.319374, 0.439199)
@@ -328,6 +329,9 @@ cave_sounds_wait_min = 15.0
 [node name="Timer" type="Timer" parent="CaveSoundsPlayer"]
 wait_time = 30.0
 autostart = true
+
+[node name="Overweight Alert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_jhn3y")
 
 [connection signal="camera_broken" from="." to="Camera" method="_on_node_2d_camera_broken"]
 [connection signal="camera_fixed" from="." to="Camera" method="_on_node_2d_camera_fixed"]
