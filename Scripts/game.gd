@@ -22,7 +22,7 @@ class_name Game
 @export var camera2Broken = false
 @export var camera3Broken = false
 @export var cameraDeathTime : int = 20
-
+@export var camerasBroken  = false
 @export var eventRunning = false
 @export var eventRenewTimer : int = 10
 var rng = RandomNumberGenerator.new()
@@ -83,6 +83,7 @@ func randomAltitudeChange():
 	randomAltitudeChange()
 
 func eventTimer():
+	print("STARTING EVENT TIMER")
 	var tempEventTime = eventRenewTimer
 	if(rng.randi_range(0,1)):
 		tempEventTime += rng.randi_range(0,5)
@@ -116,6 +117,7 @@ func cameraBreak():
 			camera2Broken = true
 		3:
 			camera3Broken = true
+	camerasBroken = true
 	cameraBroken.emit(camera_num)
 	startCameraTimer(camera_num)
 
@@ -138,16 +140,27 @@ func fixCamera(camera_num):
 func fixCameraRPC(camera_num):
 	match camera_num:
 		1:
+			if camera1Broken:
+				eventTimer()
+				$camera_death.stop()
+				camerasBroken = false
 			camera1Broken = false
 		2: 
+			if camera2Broken:
+				eventTimer()
+				$camera_death.stop()
+				camerasBroken = false
 			camera2Broken = false
 		3:
+			if camera3Broken:
+				eventTimer()
+				$camera_death.stop()
+				camerasBroken = false
 			camera3Broken = false
 	print("CAMERA FIXED")
-	$camera_death.stop()
 	print(camera_num)
 	cameraFixed.emit(camera_num)
-	eventTimer()
+	
 	
 func receivedNewAltitude(newAltitude):
 	targetAltitude = newAltitude # remember to set var to new value
