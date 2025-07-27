@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjj1p4sdulii1"]
+[gd_scene load_steps=19 format=3 uid="uid://l683b7pr2w40"]
 
 [ext_resource type="Script" uid="uid://cm0plnfupv8fw" path="res://Art/TitleScreen/TitleControlScropt.gd" id="1_qbciv"]
 [ext_resource type="PackedScene" uid="uid://cqyu6r7ksxtxr" path="res://Scenes/JoinMenu.tscn" id="2_4o8ek"]
@@ -7,10 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://7c2g6rflmmpf" path="res://Art/TitleScreen/thuliferous_no_presentt.png" id="3_7b8ti"]
 [ext_resource type="Script" uid="uid://c1c1m6b5vfgf2" path="res://Art/TitleScreen/WobbleShit.gd" id="5_7b8ti"]
 [ext_resource type="Texture2D" uid="uid://dyvt4d1wahbnu" path="res://Art/TitleScreen/`Text.png" id="6_6gr02"]
-[ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="6_bq44u"]
 [ext_resource type="Texture2D" uid="uid://c1krjbfdfbil4" path="res://Art/TitleScreen/Backing.png" id="7_n034i"]
-[ext_resource type="FontFile" uid="uid://bcoptoqkcnkns" path="res://Art/Font/comicbd.ttf" id="7_sh6v1"]
 [ext_resource type="AudioStream" uid="uid://2yv7b4xkx8if" path="res://Audio/Music/Looping Phones.wav" id="9_n034i"]
+[ext_resource type="Texture2D" uid="uid://2orfc2h3i8g6" path="res://Art/Sprite/PlaneIconRot.png" id="10_sh6v1"]
 
 [sub_resource type="Gradient" id="Gradient_ux2t2"]
 colors = PackedColorArray(0, 0, 0, 1, 0.194349, 0.194349, 0.194349, 1)
@@ -36,12 +35,6 @@ animations = [{
 "name": &"presents",
 "speed": 5.0
 }]
-
-[sub_resource type="LabelSettings" id="LabelSettings_bimgs"]
-font = ExtResource("7_sh6v1")
-font_size = 24
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_4o8ek"]
 offsets = PackedFloat32Array(1)
@@ -109,20 +102,12 @@ z_index = 1
 texture = ExtResource("2_iulle")
 
 [node name="ThuliferousPresents" type="AnimatedSprite2D" parent="Presenting"]
-visible = false
 z_index = 1
+texture_filter = 1
 position = Vector2(52, 1)
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_8md40")
 script = ExtResource("5_7b8ti")
-
-[node name="Label" type="Label" parent="Presenting/ThuliferousPresents"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "AND HOVERTH +
-HENRY GAMES"
-label_settings = SubResource("LabelSettings_bimgs")
-horizontal_alignment = 2
 
 [node name="Title" type="Node2D" parent="."]
 
@@ -167,8 +152,8 @@ texture = ExtResource("7_n034i")
 
 [node name="LandlordParticles" type="GPUParticles2D" parent="Title"]
 z_index = -1
-amount = 10
-texture = ExtResource("6_bq44u")
+amount = 100
+texture = ExtResource("10_sh6v1")
 lifetime = 5.0
 preprocess = 5.0
 process_material = SubResource("ParticleProcessMaterial_j6858")

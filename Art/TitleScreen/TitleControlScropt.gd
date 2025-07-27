@@ -26,7 +26,7 @@ func _process(delta):
 		$Presenting.visible = false
 	if start_time + delay_logo_ms < t:
 		$Title/LandordTitlteText.visible = true
-		$Title/LandlordParticles.amount = 100
+		$Title/LandlordParticles.amount = 1000
 		if Input.is_action_just_pressed("left_click"):
 			# ready to go to next scene
 			get_tree().change_scene_to_packed(game_scene)

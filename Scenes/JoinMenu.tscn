@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
 [ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
-[ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="5_h2gi5"]
+[ext_resource type="Texture2D" uid="uid://2orfc2h3i8g6" path="res://Art/Sprite/PlaneIconRot.png" id="5_h2gi5"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0oatf"]
 particle_flag_align_y = true
@@ -149,7 +149,7 @@ clip_text = true
 [node name="LandlordParticles" type="GPUParticles2D" parent="."]
 z_index = -1
 position = Vector2(589, 337)
-amount = 10
+amount = 1000
 texture = ExtResource("5_h2gi5")
 lifetime = 5.0
 preprocess = 5.0
