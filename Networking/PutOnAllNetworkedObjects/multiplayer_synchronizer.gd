@@ -1,8 +1,8 @@
 extends MultiplayerSynchronizer
 @onready var parent = get_parent();
 func _ready() -> void:
-	get_initial_sync.rpc_id(get_multiplayer_authority())
-	
+	if not is_multiplayer_authority():
+		get_initial_sync.rpc_id(get_multiplayer_authority())
 
 @rpc("any_peer","call_remote","reliable")
 func get_initial_sync():

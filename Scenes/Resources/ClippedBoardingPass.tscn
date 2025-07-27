@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3r2rymk34urn"]
 
 [ext_resource type="Texture2D" uid="uid://o0np6f8iv1ek" path="res://Art/ClippedBoardingPass.png" id="1_jmlyd"]
-[ext_resource type="Theme" uid="uid://uj4isnoc1njp" path="res://Art/JoinMenuTheme.tres" id="2_w8gf8"]
+[ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="2_w8gf8"]
 
 [node name="ClippedBoardingPass" type="Panel"]
 offset_right = 199.0
