@@ -36,3 +36,5 @@ func _process(_delta: float) -> void:
 
 	var cooked := altitude_ratio >= 0.8 or altitude_ratio <= 0.2
 	$NoiseAnim.current_animation = "noise_bad" if cooked else "noise"
+
+	$Tablet.is_vibrating = GameManager.camerasBroken

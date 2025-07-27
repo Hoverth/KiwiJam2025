@@ -21,6 +21,7 @@ MultiplayerRoom="*res://Networking/Autoloads/MultiplayerRoom.gd"
 MultiplayerSync="*res://Networking/Autoloads/MultiplayerSync.gd"
 BridgeHandler="*res://Networking/Autoloads/Bridge/BridgeHandler.gd"
 WebRtc="*res://Networking/Autoloads/WebRTC.gd"
+GameOverReason="*res://Scripts/Autoload/gameOverReason.gd"
 
 [display]
 
