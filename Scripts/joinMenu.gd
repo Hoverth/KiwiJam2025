@@ -27,8 +27,13 @@ func on_host_success():
 func _on_name_text_changed(new_text: String) -> void:
 	PlayerName = new_text
 	
-	if (PlayerName != ""):
+	if (PlayerName != "" && RoomCode == ""):
 		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+		$Panel.visible = true
+	elif (PlayerName != "" && RoomCode != ""):
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
 		$Panel.visible = true
 	else:
 		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
@@ -43,7 +48,15 @@ func _on_room_code_text_changed(new_text: String) -> void:
 	# if either field goes from having occupied fields 
 	# back to empty, disable the join button.
 
-	if (RoomCode != "") and (PlayerName != ""):
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
-	else:
+	if (PlayerName != "" && RoomCode == ""):
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+		$Panel.visible = true
+	elif (PlayerName != "" && RoomCode != ""):
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
+		$Panel.visible = true
+	else:
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+		$Panel.visible = false
