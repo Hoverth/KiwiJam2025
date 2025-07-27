@@ -27,14 +27,26 @@ func on_host_success():
 func _on_name_text_changed(new_text: String) -> void:
 	PlayerName = new_text
 	
-	if (PlayerName != "" && RoomCode == ""):
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
-		$Panel.visible = true
-	elif (PlayerName != "" && RoomCode != ""):
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
-		$Panel.visible = true
+	if (PlayerName != ""):
+		
+		# case where player name has data and roomcode is empty
+		# option here is to just host.
+		if (RoomCode == ""):
+			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+			$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+			$Panel.visible = true
+			
+		# case where player name has data and roomcode is not empty
+		# option here would be to join.
+		
+		elif (RoomCode != ""):
+			$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+			$Panel/VBoxContainer/HBoxContainer/Join.visible = true
+			$Panel.visible = true
+			
+	# if both fields are empty, don't show host/join options.
+	# as a name is required.
+	
 	else:
 		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
@@ -48,23 +60,18 @@ func _on_room_code_text_changed(new_text: String) -> void:
 	# if either field goes from having occupied fields 
 	# back to empty, disable the join button.
 	
-	if (RoomCode == "") and (PlayerName != ""):
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
-
-	if (RoomCode != "") and (PlayerName != ""):
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
-	else:
-		if (PlayerName != "" && RoomCode == ""):
-			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
-			$Panel/VBoxContainer/HBoxContainer/Join.visible = false
-			$Panel.visible = true
-		elif (PlayerName != "" && RoomCode != ""):
-			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+	if (PlayerName != ""):
+		
+		# if player name is not empty and a code is present
+		# allow the user to only join, not host.
+		
+		if(RoomCode != ""):
 			$Panel/VBoxContainer/HBoxContainer/Join.visible = true
-			$Panel.visible = true
-		else:
 			$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+			
+		# else, if a player name is empty and no code is present
+		# only provide the user with the option to host. 
+		if(RoomCode == ""):
+			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
 			$Panel/VBoxContainer/HBoxContainer/Join.visible = false
-			$Panel.visible = false
+	
