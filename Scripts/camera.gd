@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var camera_list = [[$"Cam 1/State 1", $"Cam 1/State 2"],[$"Cam 2/State 1", $"Cam 2/State 2"],[$"Cam 3/State 1", $"Cam 3/State 2"]]
+@onready var camera_list = [[$"Cam 1/State 1", $"Cam 1/State 2", $"Cam 1/State 1 2"],[$"Cam 2/State 1", $"Cam 2/State 2"],[$"Cam 3/State 1", $"Cam 3/State 2"]]
 @onready var cameras = [$"Cam 1", $"Cam 2", $"Cam 3"]
 @onready var audio = $AudioStreamPlayer2D
 var cam1_broke = false
@@ -12,6 +12,12 @@ func _on_button_pressed() -> void:
 		audio.play()
 	else: 
 		audio.stop()
+		if randi_range(1, 10) == 2:
+			camera_list[0][2].visible = true
+			camera_list[0][0].visible = false
+		else:
+			camera_list[0][0].visible = true
+			camera_list[0][2].visible = false
 	cameras[0].visible = true
 	cameras[1].visible = false
 	cameras[2].visible = false

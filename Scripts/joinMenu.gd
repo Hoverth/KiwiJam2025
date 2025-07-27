@@ -74,4 +74,8 @@ func _on_room_code_text_changed(new_text: String) -> void:
 		if(RoomCode == ""):
 			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
 			$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+	else:
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+		$Panel.visible = false	
 	
