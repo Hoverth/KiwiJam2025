@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var target_pos := Vector2.ZERO
-@export var bird_speed := 5.0
+@export var bird_speed := 16.0
 
 var is_exploded := false
 

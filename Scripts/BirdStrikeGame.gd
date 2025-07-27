@@ -2,7 +2,7 @@ extends Sprite2D
 
 var bird := preload("res://Scenes/Controller/BirdStrike.tscn")
 @export var spawn_radius := 500.0
-@export var min_spawn_delay := 5.0
+@export var min_spawn_delay := 2.0
 @export var max_spawn_delay := 8.0
 
 signal game_over
