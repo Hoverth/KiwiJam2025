@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="KiwiJam2025"
-run/main_scene="uid://bjj1p4sdulii1"
+run/main_scene="uid://cwq1us1seogk0"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

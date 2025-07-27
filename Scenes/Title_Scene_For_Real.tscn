@@ -100,6 +100,7 @@ texture = ExtResource("2_iulle")
 [node name="ThuliferousPresents" type="AnimatedSprite2D" parent="Presenting"]
 visible = false
 z_index = 1
+texture_filter = 1
 position = Vector2(52, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8md40")
