@@ -38,3 +38,7 @@ func _process(_delta: float) -> void:
 	$NoiseAnim.current_animation = "noise_bad" if cooked else "noise"
 
 	$Tablet.is_vibrating = GameManager.camerasBroken
+
+
+func _on_bird_strike_game_game_over() -> void:
+	GameManager.gameOver()

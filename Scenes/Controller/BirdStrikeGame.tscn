@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=3 uid="uid://o5yauraqxleg"]
+
+[ext_resource type="Texture2D" uid="uid://b4fuuf0vii1oq" path="res://Art/BG/Birdstrike/mask.png" id="1_7p52l"]
+[ext_resource type="Script" uid="uid://bkl4mukth6rg2" path="res://Scripts/BirdStrikeGame.gd" id="2_je0e4"]
+[ext_resource type="Texture2D" uid="uid://dl6kb0fuaupwg" path="res://Art/radar.png" id="3_7p52l"]
+[ext_resource type="Texture2D" uid="uid://dltmv8in5xjdp" path="res://Art/BG/Camera/PlaneCamIcon.png" id="4_d1oqs"]
+
+[sub_resource type="Animation" id="Animation_73tnh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Radar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pwpsi"]
+resource_name = "blink"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Radar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.890196), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73tnh"]
+_data = {
+&"RESET": SubResource("Animation_73tnh"),
+&"blink": SubResource("Animation_pwpsi")
+}
+
+[sub_resource type="Animation" id="Animation_je0e4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Radar:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d1oqs"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Radar:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwpsi"]
+_data = {
+&"RESET": SubResource("Animation_je0e4"),
+&"spin": SubResource("Animation_d1oqs")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_je0e4"]
+radius = 24.0
+
+[node name="BirdStrikeGame" type="Sprite2D"]
+clip_children = 1
+texture = ExtResource("1_7p52l")
+script = ExtResource("2_je0e4")
+
+[node name="DimBlink" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RadarSpin")
+libraries = {
+&"": SubResource("AnimationLibrary_73tnh")
+}
+autoplay = "blink"
+
+[node name="RadarSpin" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pwpsi")
+}
+autoplay = "spin"
+
+[node name="Radar" type="Sprite2D" parent="."]
+texture = ExtResource("3_7p52l")
+metadata/_edit_lock_ = true
+
+[node name="Birds" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="PlayerPlane" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPlane"]
+shape = SubResource("CircleShape2D_je0e4")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerPlane"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_d1oqs")
+metadata/_edit_lock_ = true
+
+[node name="RayCast2D" type="RayCast2D" parent="PlayerPlane/Sprite2D"]
+scale = Vector2(2, 2)
+target_position = Vector2(0, -400)
+collision_mask = 8
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="PlayerPlane" to="." method="_on_player_plane_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
