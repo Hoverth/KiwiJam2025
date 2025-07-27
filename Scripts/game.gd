@@ -119,20 +119,18 @@ func cameraBreak():
 	cameraBroken.emit(camera_num)
 	startCameraTimer(camera_num)
 
+
 func startCameraTimer(camera_num):
-	await get_tree().create_timer(cameraDeathTime).timeout
+	$camera_death.wait_time = cameraDeathTime
+	$camera_death.start()
+
+
+func _on_camera_death_timeout() -> void:
 	print("Camera Not fixed in time")
-	match camera_num:
-		1:
-			if camera1Broken == true:
-				gameOver()
-		2: 
-			if camera2Broken == true:
-				gameOver()
-		3:
-			if camera3Broken == true:
-				gameOver()
-	
+	if camera1Broken || camera2Broken || camera3Broken:
+		gameOver()
+
+
 func fixCamera(camera_num):
 	fixCameraRPC.rpc_id(int(MultiplayerRoom.host_id),camera_num)
 
@@ -146,6 +144,7 @@ func fixCameraRPC(camera_num):
 		3:
 			camera3Broken = false
 	print("CAMERA FIXED")
+	$camera_death.stop()
 	print(camera_num)
 	cameraFixed.emit(camera_num)
 	eventTimer()

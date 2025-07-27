@@ -38,4 +38,7 @@ autostart = true
 stream = ExtResource("3_j5yw3")
 autoplay = true
 
+[node name="camera_death" type="Timer" parent="."]
+
 [connection signal="timeout" from="first_event_timer" to="." method="_on_first_event_timer_timeout"]
+[connection signal="timeout" from="camera_death" to="." method="_on_camera_death_timeout"]

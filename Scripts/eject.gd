@@ -42,12 +42,17 @@ func reset(wait_first: bool = true) -> void:
 	eventActive = true
 
 func startDeathTimer():
-	await get_tree().create_timer(timeToDeath).timeout
+	$EjectDeathTimer.stop()
+	$EjectDeathTimer.wait_time = timeToDeath
+	$EjectDeathTimer.start()
+	
+
+func _on_eject_death_timer_timeout() -> void:
 	if(eventActive):
 		var gameManager :Game = get_tree().root.get_node("Game")
 		print("Ran out of time on light minigame")
 		gameManager.gameOver()
-
+	pass # Replace with function body.
 func _process(delta: float) -> void:
 	if not $AnimationPlayer.current_animation:
 		for c in target_code:
@@ -73,6 +78,7 @@ func _on_eject_button_pressed() -> void:
 		eventActive = false
 		gameManager.eventRunning = false
 		gameManager.eventTimer()
+		$EjectDeathTimer.stop()
 	else:
 		print('ejected wrong seat')
 		var gameManager :Game = get_tree().root.get_node("Game")
