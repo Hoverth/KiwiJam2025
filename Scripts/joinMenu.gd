@@ -17,7 +17,7 @@ func _on_host_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_join_pressed() -> void:
-	webSocketBridge.join_room(RoomCode,PlayerName)
+	webSocketBridge.join_room(RoomCode.to_upper(),PlayerName)
 	pass # Replace with function body.
 
 func on_host_success():
