@@ -190,4 +190,5 @@ func win():
 	MultiplayerSync.change_scene("res://Scenes/Win.tscn")
 	
 func _on_first_event_timer_timeout() -> void:
-	eventCreator()
+	if(is_multiplayer_authority()):
+		eventCreator()
