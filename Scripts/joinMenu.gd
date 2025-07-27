@@ -2,6 +2,7 @@ extends Control
 
 @onready var PlayerName = "" 
 @onready var RoomCode = ""
+
 var webSocketBridge : WebsocketBridge
 func _ready() -> void:
 	if BridgeHandler.WebsiteBridgeEnabled:
@@ -9,7 +10,6 @@ func _ready() -> void:
 	else:
 		webSocketBridge = BridgeHandler.currentBridge
 		webSocketBridge.HostSuccess.connect(on_host_success)
-
 
 
 func _on_host_pressed() -> void:
@@ -26,8 +26,25 @@ func on_host_success():
 
 func _on_name_text_changed(new_text: String) -> void:
 	PlayerName = new_text
-
+	
+	if (PlayerName != ""):
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+		$Panel.visible = true
+	else:
+		$Panel.visible = false
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
 
 func _on_room_code_text_changed(new_text: String) -> void:
 	RoomCode = new_text
-	pass # Replace with function body.
+	
+	# if the text has been changed for both player name
+	# and room code, make the join button visible.
+	# if either field goes from having occupied fields 
+	# back to empty, disable the join button.
+
+	if (RoomCode != "") and (PlayerName != ""):
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+	else:
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
