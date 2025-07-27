@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b8aqr303wqtxj" path="res://Art/Camera/shocked_people_on_plane_px.png" id="3_0v8vy"]
 [ext_resource type="AudioStream" uid="uid://dm0cdmvfqv8gu" path="res://Audio/SoundEffects/Alarm Blare.wav" id="4_0v8vy"]
 [ext_resource type="Texture2D" uid="uid://ptbobl6vmmih" path="res://Art/Camera/engines_px.png" id="5_2ysbw"]
-[ext_resource type="Texture2D" uid="uid://dvuujco522bdh" path="res://Art/Camera/engines_fire_px.png" id="6_0v8vy"]
+[ext_resource type="Texture2D" uid="uid://d4gxwmvdoktgb" path="res://Art/Camera/willy a arson.png" id="6_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://drx27cm4rn0vy" path="res://Art/Camera/door_dumface.png" id="7_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://x8i68bgu4k02" path="res://Art/Camera/Funny 2 dumface.png" id="8_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://cdpdryym33i4d" path="res://Art/BG/Camera/CameraFrame.png" id="8_cq81y"]
@@ -197,7 +197,7 @@ texture = ExtResource("5_2ysbw")
 visible = false
 position = Vector2(576, 324)
 scale = Vector2(0.822857, 0.687898)
-texture = ExtResource("6_0v8vy")
+texture = ExtResource("6_2ysbw")
 
 [node name="Darken" type="Sprite2D" parent="Cam 2/State 2"]
 modulate = Color(0, 0, 0, 0.686275)
