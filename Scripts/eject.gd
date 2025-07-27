@@ -75,17 +75,17 @@ func _process(delta: float) -> void:
 		$AnimationPlayer.queue("flash_blank")
 
 func _on_up_button_pressed() -> void:
-	if seat_index > 0:
+	if $"..".control_enabled and seat_index > 0:
 		seat_index -= 1
 		seat_label.text = seat_list[seat_index]
 
 func _on_down_button_pressed() -> void:
-	if seat_index + 1 < len(seat_list):
+	if $"..".control_enabled and seat_index + 1 < len(seat_list):
 		seat_index += 1
 		seat_label.text = seat_list[seat_index]
 
 func _on_eject_button_pressed() -> void:
-	if target_seat == seat_list[seat_index]:
+	if $"..".control_enabled and target_seat == seat_list[seat_index]:
 		print('ejected the target seat')
 		print(target_seat)
 		target_code = []
@@ -96,7 +96,7 @@ func _on_eject_button_pressed() -> void:
 		$EjectDeathTimer.stop()
 		overweight_alert.stop()
 		flush.play()
-	else:
+	elif $"..".control_enabled:
 		
 		var person : String = passenger_list[seat_index]
 		var fine : int = randi_range(300,950)
