@@ -1,0 +1,162 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjj1p4sdulii1"]
+
+[ext_resource type="Script" uid="uid://cm0plnfupv8fw" path="res://Art/TitleScreen/TitleControlScropt.gd" id="1_qbciv"]
+[ext_resource type="PackedScene" uid="uid://cqyu6r7ksxtxr" path="res://Scenes/JoinMenu.tscn" id="2_4o8ek"]
+[ext_resource type="Texture2D" uid="uid://mbu5psgprxw" path="res://Art/TitleScreen/Oscario.jpg" id="2_iulle"]
+[ext_resource type="Texture2D" uid="uid://b074c8pkw0vak" path="res://Art/TitleScreen/thuliferous_presents.png" id="2_o5mnq"]
+[ext_resource type="Texture2D" uid="uid://7c2g6rflmmpf" path="res://Art/TitleScreen/thuliferous_no_presentt.png" id="3_7b8ti"]
+[ext_resource type="Script" uid="uid://c1c1m6b5vfgf2" path="res://Art/TitleScreen/WobbleShit.gd" id="5_7b8ti"]
+[ext_resource type="Texture2D" uid="uid://dyvt4d1wahbnu" path="res://Art/TitleScreen/`Text.png" id="6_6gr02"]
+[ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="6_bq44u"]
+[ext_resource type="Texture2D" uid="uid://c1krjbfdfbil4" path="res://Art/TitleScreen/Backing.png" id="7_n034i"]
+[ext_resource type="AudioStream" uid="uid://2yv7b4xkx8if" path="res://Audio/Music/Looping Phones.wav" id="9_n034i"]
+
+[sub_resource type="Gradient" id="Gradient_ux2t2"]
+colors = PackedColorArray(0, 0, 0, 1, 0.194349, 0.194349, 0.194349, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wuk45"]
+gradient = SubResource("Gradient_ux2t2")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8md40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7b8ti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o5mnq")
+}],
+"loop": true,
+"name": &"presents",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_4o8ek"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.486733, 0, 0.0303708, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sh6v1"]
+gradient = SubResource("Gradient_4o8ek")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ugbx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 0, 1)
+angle_min = -180.0
+angle_max = 180.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+gravity = Vector3(0, 500, 0)
+scale_max = 3.0
+turbulence_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gwxm6"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 0, 1)
+angle_min = -180.0
+angle_max = 180.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+gravity = Vector3(0, 500, 0)
+scale_max = 3.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j6858"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 500.0
+tangential_accel_max = 500.0
+damping_min = 100.0
+damping_max = 100.0
+scale_min = 0.8
+scale_over_velocity_max = 100.0
+
+[node name="TitleSceneForReal" type="Node2D"]
+script = ExtResource("1_qbciv")
+game_scene = ExtResource("2_4o8ek")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Presenting" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Sprite2D2" type="Sprite2D" parent="Presenting"]
+scale = Vector2(32, 32)
+texture = SubResource("GradientTexture2D_wuk45")
+
+[node name="Sprite2D" type="Sprite2D" parent="Presenting"]
+z_index = 1
+texture = ExtResource("2_iulle")
+
+[node name="ThuliferousPresents" type="AnimatedSprite2D" parent="Presenting"]
+visible = false
+z_index = 1
+position = Vector2(52, 1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8md40")
+script = ExtResource("5_7b8ti")
+
+[node name="Title" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Title"]
+z_index = -6
+scale = Vector2(32, 32)
+texture = SubResource("GradientTexture2D_sh6v1")
+
+[node name="Node2D" type="Node2D" parent="Title"]
+position = Vector2(0, -800)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Title/Node2D"]
+amount = 1000
+lifetime = 15.0
+preprocess = 15.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_8ugbx")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Title/Node2D"]
+amount = 1000
+lifetime = 4.0
+preprocess = 4.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_gwxm6")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="Title/Node2D"]
+amount = 1000
+lifetime = 15.0
+preprocess = 15.0
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_8ugbx")
+
+[node name="LandordTitlteText" type="Sprite2D" parent="Title"]
+visible = false
+texture = ExtResource("6_6gr02")
+
+[node name="LandordTitlteBackground" type="Sprite2D" parent="Title"]
+z_index = -4
+position = Vector2(-4, 4.00004)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("7_n034i")
+
+[node name="LandlordParticles" type="GPUParticles2D" parent="Title"]
+z_index = -1
+amount = 10
+texture = ExtResource("6_bq44u")
+lifetime = 5.0
+preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_j6858")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_n034i")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+autoplay = true

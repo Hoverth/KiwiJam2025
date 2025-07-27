@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2yv7b4xkx8if"
+path="res://.godot/imported/Looping Phones.wav-7fb45806ae438431b4a9a1dc20bb3cdb.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Looping Phones.wav"
+dest_files=["res://.godot/imported/Looping Phones.wav-7fb45806ae438431b4a9a1dc20bb3cdb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
