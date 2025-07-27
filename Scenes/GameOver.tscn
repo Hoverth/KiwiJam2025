@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0ug4bi2eu1ml"]
+[gd_scene load_steps=12 format=3 uid="uid://cuc3wf0t1c1mi"]
 
 [ext_resource type="Texture2D" uid="uid://dbmw75mt3neko" path="res://Art/Sprite/WhitePixel.tres" id="1_k52d1"]
 [ext_resource type="Texture2D" uid="uid://n62e0svs3vh6" path="res://Art/BG/GameOver.png" id="1_m5628"]

@@ -117,11 +117,7 @@ func change_scene(scene_path):
 func change_scene_rpc(scene_path):
 	current_scene = scene_path
 	
-	get_tree().root.get_child(5).queue_free()
+	get_tree().root.get_child(-1).queue_free()
 	var instance :Node= load(scene_path).instantiate()
 	instance.set_multiplayer_authority(MultiplayerRoom.host_id)
 	get_tree().root.add_child.call_deferred(instance)
-	
-
-		
-	
