@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjj1p4sdulii1"]
+[gd_scene load_steps=21 format=3 uid="uid://bjj1p4sdulii1"]
 
 [ext_resource type="Script" uid="uid://cm0plnfupv8fw" path="res://Art/TitleScreen/TitleControlScropt.gd" id="1_qbciv"]
 [ext_resource type="PackedScene" uid="uid://cqyu6r7ksxtxr" path="res://Scenes/JoinMenu.tscn" id="2_4o8ek"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dyvt4d1wahbnu" path="res://Art/TitleScreen/`Text.png" id="6_6gr02"]
 [ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="6_bq44u"]
 [ext_resource type="Texture2D" uid="uid://c1krjbfdfbil4" path="res://Art/TitleScreen/Backing.png" id="7_n034i"]
+[ext_resource type="FontFile" uid="uid://bcoptoqkcnkns" path="res://Art/Font/comicbd.ttf" id="7_sh6v1"]
 [ext_resource type="AudioStream" uid="uid://2yv7b4xkx8if" path="res://Audio/Music/Looping Phones.wav" id="9_n034i"]
 
 [sub_resource type="Gradient" id="Gradient_ux2t2"]
@@ -35,6 +36,12 @@ animations = [{
 "name": &"presents",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bimgs"]
+font = ExtResource("7_sh6v1")
+font_size = 24
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_4o8ek"]
 offsets = PackedFloat32Array(1)
@@ -67,7 +74,11 @@ gravity = Vector3(0, 500, 0)
 scale_max = 3.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j6858"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
 particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
 direction = Vector3(0, -1, 0)
 spread = 180.0
 initial_velocity_min = 300.0
@@ -104,6 +115,14 @@ position = Vector2(52, 1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8md40")
 script = ExtResource("5_7b8ti")
+
+[node name="Label" type="Label" parent="Presenting/ThuliferousPresents"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "AND HOVERTH +
+HENRY GAMES"
+label_settings = SubResource("LabelSettings_bimgs")
+horizontal_alignment = 2
 
 [node name="Title" type="Node2D" parent="."]
 

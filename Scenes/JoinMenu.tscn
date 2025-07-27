@@ -1,9 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqyu6r7ksxtxr"]
+[gd_scene load_steps=7 format=3 uid="uid://cqyu6r7ksxtxr"]
 
 [ext_resource type="Script" uid="uid://cisdjqfhc7e2c" path="res://Scripts/joinMenu.gd" id="1_7be0v"]
 [ext_resource type="Texture2D" uid="uid://cehrrlgt4wonn" path="res://Art/BoardingPass.png" id="2_4atuy"]
 [ext_resource type="Script" uid="uid://dma6lgke4bye7" path="res://Scripts/BoardingPass.gd" id="2_iwfl7"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="3_46tsd"]
+[ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="5_h2gi5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0oatf"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+angle_min = 90.0
+angle_max = 90.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 500.0
+tangential_accel_max = 500.0
+damping_min = 100.0
+damping_max = 100.0
+scale_min = 0.8
+scale_over_velocity_max = 100.0
 
 [node name="JoinMenu" type="Control"]
 layout_mode = 3
@@ -126,6 +145,15 @@ offset_right = 917.0
 offset_bottom = 215.0
 theme = ExtResource("3_46tsd")
 clip_text = true
+
+[node name="LandlordParticles" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(589, 337)
+amount = 10
+texture = ExtResource("5_h2gi5")
+lifetime = 5.0
+preprocess = 5.0
+process_material = SubResource("ParticleProcessMaterial_0oatf")
 
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Join" to="." method="_on_join_pressed"]
