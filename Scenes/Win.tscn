@@ -1,13 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl0sc68dj412"]
+[gd_scene load_steps=10 format=3 uid="uid://dl0sc68dj412"]
 
 [ext_resource type="Script" uid="uid://bvie6o5o6js3m" path="res://Scripts/game_over.gd" id="1_ac5ay"]
 [ext_resource type="Texture2D" uid="uid://ddg2l7tc3ktom" path="res://Art/BG/Win.png" id="2_8acr0"]
 [ext_resource type="FontFile" uid="uid://bcoptoqkcnkns" path="res://Art/Font/comicbd.ttf" id="4_6wuka"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="5_7mdni"]
+[ext_resource type="Texture2D" uid="uid://dotdsk2mtd1ey" path="res://Art/Sprite/WhitePixel.tres" id="5_ac5ay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uib17"]
 font = ExtResource("4_6wuka")
 font_size = 72
+
+[sub_resource type="Curve" id="Curve_ov476"]
+_data = [Vector2(0, 0.307233), 0.0, 0.0, 0, 0, Vector2(0.981445, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2vnvq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.955078, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ac5ay"]
+offsets = PackedFloat32Array(0, 0.339375, 0.719844, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0.983333, 1, 1, 0, 0.716667, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -45,5 +58,32 @@ offset_right = 1087.0
 offset_bottom = 98.0
 theme = ExtResource("5_7mdni")
 text = "Back To Main Menu"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(575, -133)
+amount = 100
+texture = ExtResource("5_ac5ay")
+preprocess = 1.0
+speed_scale = 0.7
+explosiveness = 0.1
+randomness = 1.0
+direction = Vector2(0, 1)
+spread = 98.7
+initial_velocity_min = 273.95
+initial_velocity_max = 753.51
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_min = -71.52
+radial_accel_max = 29.32
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+split_scale = true
+scale_curve_x = SubResource("Curve_ov476")
+scale_curve_y = SubResource("Curve_2vnvq")
+color_initial_ramp = SubResource("Gradient_ac5ay")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -7,6 +7,8 @@ static var any_overlay_on := false
 
 @export var content: PackedScene
 
+@export var is_vibrating := false
+
 signal overlay_shown
 signal overlay_hidden
 
@@ -40,3 +42,10 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 func _on_overlay_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_pressed() and overlay_on:
 		on_overlay_click()
+
+func _process(_delta: float) -> void:
+	if is_vibrating:
+		if $VibrateAnim.current_animation != "vibrate":
+			$VibrateAnim.play("vibrate")
+	else:
+		$VibrateAnim.stop()
