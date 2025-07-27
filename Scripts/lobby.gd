@@ -13,7 +13,7 @@ func _ready() -> void:
 		startGameButton.disabled = false
 	else:
 		startGameButton.disabled = true
-	
+
 func updateRoomCode():
 	RoomCodeDisplay.text = "%s" % [MultiplayerRoom.room_code]
 

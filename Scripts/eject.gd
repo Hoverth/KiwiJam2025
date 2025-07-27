@@ -68,7 +68,7 @@ func _on_eject_death_timer_timeout() -> void:
 		var gameManager :Game = get_tree().root.get_node("Game")
 		gameManager.gameOver("The pilot did not eject the right person on time.")
 	pass
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not $AnimationPlayer.current_animation:
 		for c in target_code:
 			$AnimationPlayer.queue("flash_" + c)

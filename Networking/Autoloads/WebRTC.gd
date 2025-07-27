@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func onConnected(id):
 	rtc = WebRTCMultiplayerPeer.new()
-	var error = rtc.create_mesh(id)
+	var _error = rtc.create_mesh(id)
 	multiplayer.multiplayer_peer = rtc
 
 func create_peer(id,send_offer):

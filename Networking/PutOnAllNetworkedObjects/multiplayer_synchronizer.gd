@@ -6,7 +6,7 @@ func _ready() -> void:
 
 @rpc("any_peer","call_remote","reliable")
 func get_initial_sync():
-	var sender_id = multiplayer.get_remote_sender_id()
+	var _sender_id = multiplayer.get_remote_sender_id()
 	parent.remove_child(self)
 	parent.add_child(self)
 	

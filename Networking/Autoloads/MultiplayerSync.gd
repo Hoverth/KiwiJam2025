@@ -68,8 +68,8 @@ func finished_loading():
 	peerLoaded.emit(multiplayer.get_remote_sender_id())
 		
 func spawn(file_path,parent_path,authority):
-	var load = load(file_path)
-	var object :Node2D= load.instantiate();
+	var load_f = load(file_path)
+	var object :Node2D= load_f.instantiate();
 	var parent = get_node(parent_path)
 	
 	object.name = generateName()

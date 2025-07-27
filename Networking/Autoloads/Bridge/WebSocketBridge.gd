@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ws.poll()
 	if(ws.get_available_packet_count()):
 		var string = ws.get_packet().get_string_from_ascii()

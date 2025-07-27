@@ -53,7 +53,7 @@ func cameraBroken(camera_num):
 		3:
 			$Camera.cam3_broke = true
 	camera_broken.emit(camera_num)
-func _process(delta):
+func _process(_delta):
 	if GameManager.gracePeriodActive:
 		# Warning Lights and Stuff
 		pass

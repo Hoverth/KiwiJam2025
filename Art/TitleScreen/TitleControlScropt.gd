@@ -16,7 +16,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta: float):
 	var t = Time.get_ticks_msec()
 	if start_time + delay_presenting_text_ms < t:
 		$Presenting/ThuliferousPresents.visible = true

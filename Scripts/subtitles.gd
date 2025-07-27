@@ -25,7 +25,7 @@ var start_time: int
 func _ready():
 	start_time = Time.get_ticks_msec()
 
-func _process(delta):
+func _process(_delta):
 	var t = Time.get_ticks_msec()
 	if start_time + delay_1 < t:
 		text = "But don't you worry, Old Sport"

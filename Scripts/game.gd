@@ -54,11 +54,11 @@ func _ready() -> void:
 		add_child(instance)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
 	
-	percentageTimeRemaining = (1 - (winTimer.time_left/winTime)) * 100
+	percentageTimeRemaining = int((1 - (winTimer.time_left/winTime)) * 100)
 	#if (not winTimer.is_stopped()):
 		#print(winTimer.time_left)
 		#print(percentageTimeRemaining)
@@ -126,7 +126,7 @@ func cameraBreak():
 	startCameraTimer(camera_num)
 
 
-func startCameraTimer(camera_num):
+func startCameraTimer(_camera_num):
 	$camera_death.wait_time = cameraDeathTime
 	$camera_death.start()
 

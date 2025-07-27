@@ -10,7 +10,7 @@ signal game_over
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -27,5 +27,5 @@ func _on_timer_timeout() -> void:
 	$Birds.add_child(inst)
 	$Timer.start(randf_range(min_spawn_delay, max_spawn_delay))
 
-func _on_player_plane_area_entered(area: Area2D) -> void:
+func _on_player_plane_area_entered(_area: Area2D) -> void:
 	game_over.emit()
