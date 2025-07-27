@@ -42,7 +42,7 @@ func _ready() -> void:
 		winTimer.timeout.connect(win)
 		winTimer.start(winTime)
 		var instance :Node = load("res://Scenes/Pilot/Cockpit.tscn").instantiate()
-		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
+		instance.set_multiplayer_authority(int(MultiplayerRoom.host_id))
 		currentAltitude = 30000
 		targetAltitude = 30000
 		add_child(instance)
@@ -50,7 +50,7 @@ func _ready() -> void:
 		#eventCreator()
 	else:
 		var instance :Node = load("res://Scenes/Controller/Station.tscn").instantiate()
-		instance.set_multiplayer_authority(MultiplayerRoom.host_id)
+		instance.set_multiplayer_authority(int(MultiplayerRoom.host_id))
 		add_child(instance)
 
 

@@ -59,7 +59,7 @@ func build_scene(dictionary:Dictionary):
 		var object_to_spawn = load(new_node.file_path)
 		var object_instance = object_to_spawn.instantiate() as Node2D
 		object_instance.name = new_node.name
-		object_instance.set_multiplayer_authority(new_node.authority)
+		object_instance.set_multiplayer_authority(int(new_node.authority))
 		parent.add_child(object_instance)
 	finished_loading.rpc();
 
@@ -97,7 +97,7 @@ func generateName() -> String:
 	return "%d" % [rng.randf_range(0, 100000.0)]
 
 func set_object_authority(node:Node,new_peer_id):
-	set_object_authority_rpc.rpc(node.get_path(),node.get_multiplayer_authority(),new_peer_id)
+	set_object_authority_rpc.rpc(node.get_path(),node.get_multiplayer_authority(),int(new_peer_id))
 	
 @rpc("any_peer","call_local","reliable")
 func set_object_authority_rpc(node_path,old_peer_id,new_peer_id):
@@ -119,5 +119,5 @@ func change_scene_rpc(scene_path):
 	
 	get_tree().root.get_child(-1).queue_free()
 	var instance :Node= load(scene_path).instantiate()
-	instance.set_multiplayer_authority(MultiplayerRoom.host_id)
+	instance.set_multiplayer_authority(int(MultiplayerRoom.host_id))
 	get_tree().root.add_child.call_deferred(instance)
