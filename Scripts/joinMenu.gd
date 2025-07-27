@@ -42,8 +42,13 @@ func _on_room_code_text_changed(new_text: String) -> void:
 	# and room code, make the join button visible.
 	# if either field goes from having occupied fields 
 	# back to empty, disable the join button.
+	
+	if (RoomCode == "") and (PlayerName != ""):
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
 
 	if (RoomCode != "") and (PlayerName != ""):
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
+		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
 	else:
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = false

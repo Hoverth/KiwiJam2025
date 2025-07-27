@@ -99,8 +99,7 @@ func _on_eject_button_pressed() -> void:
 		
 		var gameManager :Game = get_tree().root.get_node("Game")
 		
-		var format = "You have gotten sued by the family of %s for \n wrongful ejection.\n\n\nYou have been fined %d million dollars by the Aviation Authority."
-		
+		var format = "You have gotten sued by the family of %s for \n wrongful ejection.\n\n\nYou have also been fined %d million dollars by the NZ Civil & Aviation Authority."
 		
 		gameManager.gameOver(format % [person,fine])
 		print(target_seat)
