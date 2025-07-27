@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://7c2g6rflmmpf" path="res://Art/TitleScreen/thuliferous_no_presentt.png" id="3_7b8ti"]
 [ext_resource type="Script" uid="uid://c1c1m6b5vfgf2" path="res://Art/TitleScreen/WobbleShit.gd" id="5_7b8ti"]
 [ext_resource type="Texture2D" uid="uid://dyvt4d1wahbnu" path="res://Art/TitleScreen/`Text.png" id="6_6gr02"]
-[ext_resource type="Texture2D" uid="uid://c1krjbfdfbil4" path="res://Art/TitleScreen/Backing.png" id="7_n034i"]
+[ext_resource type="Texture2D" uid="uid://n62e0svs3vh6" path="res://Art/BG/GameOver.png" id="9_4o8ek"]
 [ext_resource type="AudioStream" uid="uid://2yv7b4xkx8if" path="res://Audio/Music/Looping Phones.wav" id="9_n034i"]
 [ext_resource type="Texture2D" uid="uid://2orfc2h3i8g6" path="res://Art/Sprite/PlaneIconRot.png" id="10_sh6v1"]
 
@@ -144,12 +144,6 @@ process_material = SubResource("ParticleProcessMaterial_8ugbx")
 visible = false
 texture = ExtResource("6_6gr02")
 
-[node name="LandordTitlteBackground" type="Sprite2D" parent="Title"]
-z_index = -4
-position = Vector2(-4, 4.00004)
-scale = Vector2(0.611111, 0.611111)
-texture = ExtResource("7_n034i")
-
 [node name="LandlordParticles" type="GPUParticles2D" parent="Title"]
 z_index = -1
 amount = 100
@@ -157,6 +151,12 @@ texture = ExtResource("10_sh6v1")
 lifetime = 5.0
 preprocess = 5.0
 process_material = SubResource("ParticleProcessMaterial_j6858")
+
+[node name="LandordTitlteBackground" type="Sprite2D" parent="Title"]
+z_index = -1
+position = Vector2(242, 34)
+scale = Vector2(0.611111, 0.611111)
+texture = ExtResource("9_4o8ek")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_n034i")
