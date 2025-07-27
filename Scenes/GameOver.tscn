@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0flovio482sq"]
+[gd_scene load_steps=11 format=3 uid="uid://c0flovio482sq"]
 
 [ext_resource type="Texture2D" uid="uid://dotdsk2mtd1ey" path="res://Art/Sprite/WhitePixel.tres" id="1_k52d1"]
 [ext_resource type="Texture2D" uid="uid://n62e0svs3vh6" path="res://Art/BG/GameOver.png" id="1_m5628"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bcoptoqkcnkns" path="res://Art/Font/comicbd.ttf" id="3_ktc4i"]
 [ext_resource type="Theme" uid="uid://crwxdq6rd27gp" path="res://Art/JoinMenuTheme.tres" id="4_uib17"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="5_bfgkh"]
+[ext_resource type="Script" uid="uid://d10gjcaaqxvnm" path="res://Networking/PutOnAllNetworkedObjects/multiplayer_synchronizer.gd" id="7_5mu6e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uib17"]
 font = ExtResource("3_ktc4i")
@@ -13,6 +14,11 @@ font_size = 72
 
 [sub_resource type="LabelSettings" id="LabelSettings_5mu6e"]
 font = ExtResource("5_bfgkh")
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8710x"]
+properties/0/path = NodePath("ReasonLabel:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -102,6 +108,11 @@ offset_top = 497.0
 offset_right = 1102.0
 offset_bottom = 528.0
 theme = ExtResource("4_uib17")
+disabled = true
 text = "Back To Main Menu"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_8710x")
+script = ExtResource("7_5mu6e")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
