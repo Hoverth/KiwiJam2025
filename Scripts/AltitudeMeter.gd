@@ -41,4 +41,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_bird_strike_game_game_over() -> void:
-	GameManager.gameOver()
+	GameManager.gameOver("Bird strike took out the engines")
