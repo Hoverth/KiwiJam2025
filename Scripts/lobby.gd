@@ -9,8 +9,10 @@ func _ready() -> void:
 	updatePlayers()
 	MultiplayerRoom.onPlayersChanged.connect(updatePlayers)
 	MultiplayerRoom.onRoomCodeChanged.connect(updateRoomCode)
-	if(is_multiplayer_authority()):
+	if(MultiplayerRoom.players.size() > 1 && is_multiplayer_authority()):
 		startGameButton.disabled = false
+	else:
+		startGameButton.disabled = true
 	
 func updateRoomCode():
 	RoomCodeDisplay.text = "%s" % [MultiplayerRoom.room_code]
@@ -28,6 +30,11 @@ func updatePlayers():
 		var ticket_room: Label = ticket.get_child(2)
 		ticket_room.text = MultiplayerRoom.room_code
 		PlayersDisplay.add_child(ticket)
+	
+	if(MultiplayerRoom.players.size() > 1 && is_multiplayer_authority()):
+		startGameButton.disabled = false
+	else:
+		startGameButton.disabled = true
 		#text += " %s : %s \n" % [player.id,player.playerName]
 	#PlayersDisplay.text = text
 
