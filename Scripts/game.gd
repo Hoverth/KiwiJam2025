@@ -201,7 +201,7 @@ func getMaxAltitude():
 	return targetAltitude + altitude_buffer
 
 func gameOver(gameOverReason):
-	gameOverRPC.rpc(gameOverReason)
+	gameOverRPC.rpc_id(int(MultiplayerRoom.host_id),gameOverReason)
 
 @rpc("any_peer","call_local","reliable")
 func gameOverRPC(gameOverReason):
