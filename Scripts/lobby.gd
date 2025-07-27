@@ -3,11 +3,14 @@ extends Control
 
 @export var RoomCodeDisplay : Label
 @export var PlayersDisplay : Control 
+@export var startGameButton : Button
 func _ready() -> void:
 	updateRoomCode()
 	updatePlayers()
 	MultiplayerRoom.onPlayersChanged.connect(updatePlayers)
 	MultiplayerRoom.onRoomCodeChanged.connect(updateRoomCode)
+	if(is_multiplayer_authority()):
+		startGameButton.disabled = false
 	
 func updateRoomCode():
 	RoomCodeDisplay.text = "%s" % [MultiplayerRoom.room_code]
