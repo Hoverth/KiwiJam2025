@@ -117,7 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.888085, 0.944247, 0.879725, 1)
 script = ExtResource("3_0caky")
-cameraNum = 3
+cameraNum = 1
 metadata/_edit_group_ = true
 
 [node name="ProgressRect" type="ColorRect" parent="TabletButton3"]
@@ -162,7 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.888085, 0.944247, 0.879725, 1)
 script = ExtResource("3_0caky")
-cameraNum = 1
+cameraNum = 3
 metadata/_edit_group_ = true
 
 [node name="ProgressRect" type="ColorRect" parent="TabletButton4"]
