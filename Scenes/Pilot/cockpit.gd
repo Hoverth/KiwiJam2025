@@ -38,7 +38,7 @@ func cameraFixed(camera_num):
 			$Camera.cam2_broke = false
 		3:
 			$Camera.cam3_broke = false
-	camera_fixed.emit()
+	camera_fixed.emit(camera_num)
 
 func cameraBroken(camera_num):
 	match camera_num:
