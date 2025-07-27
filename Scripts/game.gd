@@ -131,9 +131,13 @@ func startCameraTimer(camera_num):
 func _on_camera_death_timeout() -> void:
 	if camera1Broken || camera2Broken || camera3Broken:
 		if camera1Broken:
-			gameOver("The passengers suffocated from a lack of oxygen")
+			var casualties : int = randi_range(100,300)
+			var format : String = "The %d passengers on board suffocated from a lack of oxygen"
+			gameOver(format % casualties)
 		elif camera2Broken:
-			gameOver("The engine caught fire and exploded")
+			var casualties : int = randi_range(100,300)
+			var format : String = "The engine caught fire and exploded, killing %d people."
+			gameOver(format % casualties)
 		else:
 			gameOver("Because of the open door incident, Boeing has fired you")
 

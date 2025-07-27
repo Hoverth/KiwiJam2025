@@ -99,11 +99,8 @@ func _on_eject_button_pressed() -> void:
 	elif $"..".control_enabled:
 		
 		var person : String = passenger_list[seat_index]
-		
 		var fine : int = randi_range(300,950)
-		
-		var gameManager :Game = get_tree().root.get_node("Game")
-		
+		var gameManager : Game = get_tree().root.get_node("Game")
 		var format = "You have gotten sued by the family of %s for \n wrongful ejection.\n\n\nYou have also been fined %d million dollars by the NZ Civil & Aviation Authority."
 		
 		gameManager.gameOver(format % [person,fine])
