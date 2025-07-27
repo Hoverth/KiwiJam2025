@@ -61,8 +61,10 @@ func _process(delta: float) -> void:
 		#print(percentageTimeRemaining)
 	
 	if !gracePeriodActive:
-		if currentAltitude >= getMaxAltitude() || currentAltitude <= getMinAltitude():
-				gameOver("Out of altitude range for too long")		
+		if currentAltitude >= getMaxAltitude():
+			gameOver("The plane flew too high, lost control, and crashed")
+		elif currentAltitude <= getMinAltitude():
+			gameOver("The plane flew too low and crashed")
 
 func gracePeriodTimer():
 	gracePeriodActive = true
@@ -128,7 +130,12 @@ func startCameraTimer(camera_num):
 
 func _on_camera_death_timeout() -> void:
 	if camera1Broken || camera2Broken || camera3Broken:
-		gameOver("Camera Not fixed in time")
+		if camera1Broken:
+			gameOver("The passengers suffocated from a lack of oxygen")
+		elif camera2Broken:
+			gameOver("The engine caught fire and exploded")
+		else:
+			gameOver("Because of the open door incident, Boeing has fired you")
 
 
 func fixCamera(camera_num):
@@ -194,6 +201,10 @@ func getMaxAltitude():
 	return targetAltitude + altitude_buffer
 
 func gameOver(gameOverReason):
+	gameOverRPC.rpc(gameOverReason)
+
+@rpc("any_peer","call_local","reliable")
+func gameOverRPC(gameOverReason):
 	GameOverReason.gameOverReason = gameOverReason
 	MultiplayerSync.change_scene("res://Scenes/GameOver.tscn")
 
