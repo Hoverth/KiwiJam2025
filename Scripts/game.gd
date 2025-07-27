@@ -201,6 +201,10 @@ func getMaxAltitude():
 	return targetAltitude + altitude_buffer
 
 func gameOver(gameOverReason):
+	gameOverRPC.rpc(gameOverReason)
+
+@rpc("any_peer","call_local","reliable")
+func gameOverRPC(gameOverReason):
 	GameOverReason.gameOverReason = gameOverReason
 	MultiplayerSync.change_scene("res://Scenes/GameOver.tscn")
 
