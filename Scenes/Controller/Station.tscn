@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="6_0ej5x"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="6_5vxii"]
 [ext_resource type="PackedScene" uid="uid://o5yauraqxleg" path="res://Scenes/Controller/BirdStrikeGame.tscn" id="6_fka5k"]
-[ext_resource type="Script" uid="uid://dowqbr0afekop" path="res://Scripts/Progress.gd" id="6_xamlr"]
+[ext_resource type="Script" path="res://Scripts/Progress.gd" id="6_xamlr"]
 [ext_resource type="PackedScene" uid="uid://cm1ygqtmfwt3v" path="res://Scenes/Controller/TabletContent.tscn" id="7_02phc"]
 [ext_resource type="Texture2D" uid="uid://bv7x4v5jy04px" path="res://Art/BG/Tablet/SettingStateClosed/TabletStateClosed.png" id="7_5vxii"]
 
