@@ -33,3 +33,6 @@ func _process(_delta: float) -> void:
 
 	$AltitudeMeter/Doodads/PlaneMarker.position.y = lerp(min_altitude_y, max_altitude_y, altitude_ratio)
 	$Progress.progress = GameManager.percentageTimeRemaining / 100.0
+
+	var cooked := altitude_ratio >= 0.8 or altitude_ratio <= 0.2
+	$NoiseAnim.current_animation = "noise_bad" if cooked else "noise"

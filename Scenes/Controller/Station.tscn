@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://krd4cifms0xv"]
+[gd_scene load_steps=29 format=3 uid="uid://krd4cifms0xv"]
 
 [ext_resource type="Texture2D" uid="uid://d1qca4hgydf7p" path="res://Art/BG/ControllerStation.png" id="1_1dhem"]
 [ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="2_02phc"]
 [ext_resource type="Script" uid="uid://dylo3goi57crg" path="res://Scripts/AltitudeMeter.gd" id="2_fka5k"]
 [ext_resource type="Texture2D" uid="uid://rapd3dkeyjpw" path="res://Art/Sprite/DeathZone.png" id="2_xamlr"]
-[ext_resource type="PackedScene" path="res://Scenes/Controller/Clipboard.tscn" id="6_0ej5x"]
+[ext_resource type="PackedScene" uid="uid://bv4scxjp6np66" path="res://Scenes/Controller/BirdStrike.tscn" id="3_h5h2k"]
+[ext_resource type="PackedScene" uid="uid://drhp3lltalspc" path="res://Scenes/Controller/Clipboard.tscn" id="6_0ej5x"]
 [ext_resource type="FontFile" uid="uid://nwcm3280nyqg" path="res://Art/Font/comic.ttf" id="6_5vxii"]
 [ext_resource type="Texture2D" uid="uid://b6hob4aej3phr" path="res://Art/Placeholders/Shivam.jpg" id="6_fka5k"]
 [ext_resource type="Script" uid="uid://dowqbr0afekop" path="res://Scripts/Progress.gd" id="6_xamlr"]
@@ -91,6 +92,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0, 20]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoiseAnim/Noise:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0901961)]
+}
 
 [sub_resource type="Animation" id="Animation_fka5k"]
 resource_name = "noise_bad"
@@ -162,6 +175,10 @@ modulate = Color(0.163398, 0.163398, 0.163398, 1)
 scale = Vector2(685, 498)
 texture = SubResource("GradientTexture2D_xamlr")
 metadata/_edit_lock_ = true
+
+[node name="BirdStrike" parent="AltitudeMeter" instance=ExtResource("3_h5h2k")]
+visible = false
+position = Vector2(21, 21)
 
 [node name="Doodads" type="Node2D" parent="AltitudeMeter"]
 metadata/_edit_lock_ = true

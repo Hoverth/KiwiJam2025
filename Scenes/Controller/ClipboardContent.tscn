@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dur1vojmdxhph"]
+[gd_scene load_steps=5 format=3 uid="uid://dur1vojmdxhph"]
 
 [ext_resource type="Script" uid="uid://bm6vh1cstb28l" path="res://Scripts/ClipboardPageflip.gd" id="1_ask8o"]
 [ext_resource type="Texture2D" uid="uid://be7s0h1hdm8gv" path="res://Art/BG/PassengerLists/PassengerListATCView.png" id="2_ask8o"]
+[ext_resource type="Texture2D" uid="uid://dh1dcosxsqrvo" path="res://Art/BG/PassengerLists/BirdstrikeTutorial.png" id="3_ask8o"]
 [ext_resource type="Texture2D" uid="uid://cq36agvhgqpdd" path="res://Art/Sprite/PageArrow.png" id="3_tbt5a"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ask8o")
-images = Array[Texture2D]([ExtResource("2_ask8o")])
+images = Array[Texture2D]([ExtResource("2_ask8o"), ExtResource("3_ask8o")])
 metadata/_edit_lock_ = true
 
 [node name="Image" type="Sprite2D" parent="."]
