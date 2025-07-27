@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://l683b7pr2w40"]
+[gd_scene load_steps=19 format=3 uid="uid://bjj1p4sdulii1"]
 
 [ext_resource type="Script" uid="uid://cm0plnfupv8fw" path="res://Art/TitleScreen/TitleControlScropt.gd" id="1_qbciv"]
 [ext_resource type="PackedScene" uid="uid://cqyu6r7ksxtxr" path="res://Scenes/JoinMenu.tscn" id="2_4o8ek"]
