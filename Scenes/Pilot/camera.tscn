@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://byj5pr0p1qy3n"]
+[gd_scene load_steps=22 format=3 uid="uid://byj5pr0p1qy3n"]
 
 [ext_resource type="Script" uid="uid://dwok2ua5cvlro" path="res://Scripts/camera.gd" id="1_l1bl0"]
 [ext_resource type="Texture2D" uid="uid://bp2hp57tc8aen" path="res://Art/Camera/happy_people_on_plane_px.png" id="2_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://b8aqr303wqtxj" path="res://Art/Camera/shocked_people_on_plane_px.png" id="3_0v8vy"]
 [ext_resource type="AudioStream" uid="uid://dm0cdmvfqv8gu" path="res://Audio/SoundEffects/Alarm Blare.wav" id="4_0v8vy"]
+[ext_resource type="Texture2D" uid="uid://k4prrxssiri" path="res://Art/Camera/golden_freddy_oh_god_oh_no.png" id="4_bbha4"]
 [ext_resource type="Texture2D" uid="uid://ptbobl6vmmih" path="res://Art/Camera/engines_px.png" id="5_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://d4gxwmvdoktgb" path="res://Art/Camera/willy a arson.png" id="6_2ysbw"]
 [ext_resource type="Texture2D" uid="uid://drx27cm4rn0vy" path="res://Art/Camera/door_dumface.png" id="7_2ysbw"]
@@ -166,6 +167,12 @@ position = Vector2(60, -1)
 position = Vector2(516, 325)
 scale = Vector2(1.92, 1.62)
 texture = ExtResource("2_2ysbw")
+
+[node name="State 1 2" type="Sprite2D" parent="Cam 1"]
+visible = false
+position = Vector2(516.5, 325.25)
+scale = Vector2(1.91833, 1.62281)
+texture = ExtResource("4_bbha4")
 
 [node name="State 2" type="Sprite2D" parent="Cam 1"]
 visible = false
