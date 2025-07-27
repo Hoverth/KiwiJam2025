@@ -52,22 +52,19 @@ func _on_room_code_text_changed(new_text: String) -> void:
 		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
 
-<<<<<<< HEAD
 	if (RoomCode != "") and (PlayerName != ""):
 		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
 		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
 	else:
-=======
-	if (PlayerName != "" && RoomCode == ""):
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
->>>>>>> e5e02c1c0db4d969da19016f05934aa3ef429ec3
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
-		$Panel.visible = true
-	elif (PlayerName != "" && RoomCode != ""):
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = true
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = true
-		$Panel.visible = true
-	else:
-		$Panel/VBoxContainer/HBoxContainer/Host.visible = false
-		$Panel/VBoxContainer/HBoxContainer/Join.visible = false
-		$Panel.visible = false
+		if (PlayerName != "" && RoomCode == ""):
+			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+			$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+			$Panel.visible = true
+		elif (PlayerName != "" && RoomCode != ""):
+			$Panel/VBoxContainer/HBoxContainer/Host.visible = true
+			$Panel/VBoxContainer/HBoxContainer/Join.visible = true
+			$Panel.visible = true
+		else:
+			$Panel/VBoxContainer/HBoxContainer/Host.visible = false
+			$Panel/VBoxContainer/HBoxContainer/Join.visible = false
+			$Panel.visible = false
