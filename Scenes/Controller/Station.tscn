@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://krd4cifms0xv"]
+[gd_scene load_steps=29 format=3 uid="uid://krd4cifms0xv"]
 
 [ext_resource type="Texture2D" uid="uid://d1qca4hgydf7p" path="res://Art/BG/ControllerStation.png" id="1_1dhem"]
 [ext_resource type="Texture2D" uid="uid://da10155y8u6mw" path="res://Art/Sprite/PlaneIcon.png" id="2_02phc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/Progress.gd" id="6_xamlr"]
 [ext_resource type="PackedScene" uid="uid://cm1ygqtmfwt3v" path="res://Scenes/Controller/TabletContent.tscn" id="7_02phc"]
 [ext_resource type="Texture2D" uid="uid://bv7x4v5jy04px" path="res://Art/BG/Tablet/SettingStateClosed/TabletStateClosed.png" id="7_5vxii"]
+[ext_resource type="Texture2D" uid="uid://bdt6djcqi4si" path="res://Art/BirdStrikeTip.png" id="11_h5h2k"]
 
 [sub_resource type="Gradient" id="Gradient_02phc"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -354,6 +355,12 @@ label_settings = SubResource("LabelSettings_5vxii")
 
 [node name="Overlay" parent="Tablet" index="4"]
 position = Vector2(-224, -324)
+
+[node name="BirdStrikeTip" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1054, 497)
+scale = Vector2(1.48, 1.48)
+texture = ExtResource("11_h5h2k")
 
 [connection signal="game_over" from="BirdStrikeGame" to="." method="_on_bird_strike_game_game_over"]
 

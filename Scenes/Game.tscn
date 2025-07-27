@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1my53myn3yfw"]
+[gd_scene load_steps=7 format=3 uid="uid://c1my53myn3yfw"]
 
 [ext_resource type="Script" uid="uid://d07aa67ujbodc" path="res://Scripts/game.gd" id="1_iukft"]
 [ext_resource type="Script" uid="uid://d10gjcaaqxvnm" path="res://Networking/PutOnAllNetworkedObjects/multiplayer_synchronizer.gd" id="2_gl6un"]
+[ext_resource type="Script" uid="uid://dg3ii0fmn8o27" path="res://Scripts/subtitles.gd" id="2_kldst"]
 [ext_resource type="AudioStream" uid="uid://bsrpd3wcbxbc6" path="res://Audio/Voiceline Folder/Full introduction.wav" id="3_j5yw3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kldst"]
+font_size = 23
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_iukft"]
 properties/0/path = NodePath(".:targetAltitude")
@@ -26,6 +32,18 @@ script = ExtResource("1_iukft")
 winTime = 240
 winTimer = NodePath("WinTimer")
 cameraDeathTime = 30
+
+[node name="Label" type="Label" parent="."]
+z_index = 4096
+offset_left = 303.0
+offset_top = 448.0
+offset_right = 870.0
+offset_bottom = 524.0
+text = "Hello, Hello. It seems like the airline has forgotten to do any maintenance on your plane since 1978"
+label_settings = SubResource("LabelSettings_kldst")
+horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_kldst")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_iukft")
